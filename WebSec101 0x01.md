@@ -13,3 +13,5 @@
 * Buradaki ana hedef bazı temel SQL mantığını anlamaktır. Dolayısıyla sadece görseller burada yeterli olacaktır.
 * Kullanılacak bazı ifadeler için ön bilgi:
     * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
+    
+```SQL 
