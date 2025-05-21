@@ -15,35 +15,45 @@
         * 'string' kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
         * 'INT' ifadesi integer (tam sayı) ifade eder.
 
+
 * Aşağıda SQL kodunun bazı sorgularını kullanacağız ve temel prensiplerin bir kısmını anlamaya çalışacağız.
 
-```SQL 
-SELECT 1;
-1 --> integer sonuç.
+    ```SQL 
+    SELECT 1;
+    1 --> integer sonuç.
 
-SELECT 2-1; --> sql veritabanı çıkarma işlemini tanıyor.
-1 --> integer sonuç.
+    SELECT 2-1; --> sql veritabanı çıkarma işlemini tanıyor.
+    1 --> integer sonuç.
 
-SELECT 2+1; --> sql veritabanı toplama işlemini tanıyor.
-3 --> integer sonuç.
+    SELECT 2+1; --> sql veritabanı toplama işlemini tanıyor.
+    3 --> integer sonuç.
 
-SELECT '2-1'; --> sql veritabanı string işlemini tanıyor.
-'2-1'  --> string sonuç.
+    SELECT '2-1'; --> sql veritabanı string işlemini tanıyor.
+    '2-1'  --> string sonuç.
 
-SELECT '2'-'1'; --> sql veritabanı string olarak belirtilen karakterleri tam sayıya(integer) dönüştürdü ve çıkarma işlemi yaptı.
-1 --> integer sonuç.
+    SELECT '2'-'1'; --> sql veritabanı string olarak belirtilen karakterleri tam sayıya(integer) dönüştürdü ve çıkarma işlemi yaptı.
+    1 --> integer sonuç.
 
-SELECT '2'+'1';
-3
+    SELECT '2'+'1';
+    3
 
-SELECT '2'+'a'; --> veritabanı '2' stringini 2 sayısına(integer) dönüştürebiliyor ama aynı şeyi 'a' stringi için yapamıyor ve onu 0 olarak alıyor.
-2
+    SELECT '2'+'a'; --> veritabanı '2' stringini 2 sayısına(integer) dönüştürebiliyor ama aynı şeyi 'a' stringi için yapamıyor ve onu 0 olarak alıyor.
+    2
 
-SELECT 'b'+'a'; --> veritabanı ikisini de sayıya dönüştüremiyor.
-0
+    SELECT 'b'+'a'; --> veritabanı ikisini de sayıya dönüştüremiyor.
+    0
 
-SELECT '2' '1'; --> veritabanı iki stringi de tam sayıya dönüştürüyor ve birleştiriyor.
-21
+    SELECT '2' '1'; --> veritabanı iki stringi de tam sayıya dönüştürüyor ve birleştiriyor.
+    21
 
-SELECT '2' '1' 'a'; --> veritabanı burada herhangi bir matematik işlemi olmadığı için 'a' yı 0 olarak almadı ve sonuç direkt 21a oldu. 
-21a 
+    SELECT '2' '1' 'a'; --> veritabanı burada herhangi bir matematik işlemi olmadığı için 'a' yı 0 olarak almadı ve sonuç direkt 21a oldu. 
+    21a 
+
+    SELECT '2' '1' 'a'-1; --> veritabanında 'a' bu sefer 0 olarak alındı çünkü matematik işlemi var ve 21-1 oldu ve sonuç 20. 
+    20
+
+    SELECT !1; --> !1 = 1(doğru) değil. Yani 0(yanlış).
+    0
+
+
+# Web Sitesi Üzerinden Uygulamalı SQL Injection.
