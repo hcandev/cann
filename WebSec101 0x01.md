@@ -61,10 +61,34 @@
 * Şimdi bir web uygulamasında SQL Injection olup olmadığını anlamayı ve SQL Injection varsa neler yapılabileceğini göreceğiz.
 * http://testphp.vulnweb.com/categories.php bu web uygulaması alıştırma yapılabilmesi için test olarak geliştirilmiştir. Çalışırken bu kullanılacak.
 
-* Girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
+
+* Kullanılacak bazı ifadeler için ön bilgi:
+    * 'UNION SELECT' ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
+    * 'column' ifadesi uygulamalardaki kolonları ifade eder.
+
+* Verilen web sitesine girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
     ![alt text](image-4.png)
 
-* Bu sekmenin aynısından bir tane daha açıyoruz ve arama kısmındaki 'http://testphp.vulnweb.com/listproducts.php?cat=1' sorgusunun sonuna 1 yerine 2 yazıyoruz ve bu ekran çıkıyor:
+* Burada SQL Injection tespit etmek için bir fırsat var. 'http://testphp.vulnweb.com/listproducts.php?cat=1' adresinin son kısmını 'http://testphp.vulnweb.com/listproducts.php?cat=2-1' olarak değiştirdiğinizde yine aynı siteye girdiğimizi göreceğiz: (Yukarıdaki temel bilgilerde SELECT 2-1; 1 sonucunu veriyordu.)
+
+    ![alt text](image-3.png)
+    * Bu durumda SQL Injection olduğunu söyleyebiliriz. İşlemlerimize SQL Injection olduğundan emin olduktan sonra devam ediyoruz. 
+
+
+* 'http://testphp.vulnweb.com/listproducts.php?cat=1' Bu sekmenin aynısından bir tane daha açıyoruz ve arama kısmındaki  sorgusunun sonuna 1 yerine 2 yazıyoruz ve bu ekran çıkıyor:
 
     ![alt text](image-5.png)
+
+
+* Ana sekmemizde (http://testphp.vulnweb.com/listproducts.php?cat=1) yazan yerin son kısmını (http://testphp.vulnweb.com/listproducts.php?cat=1 UNION SELECT 1) olarak değiştirip enter'a basıyoruz ve şöyle bir ekranla karşılaşıyoruz:
+
+    ![alt text](image-2.png)
+
+* Gelen bu uyarı aslında bize bir yol haritası çiziyor. 'Error: The used SELECT statements have a different number of columns' uyarısı '1 UNION SELECT 1' sorgularından getirilen kolon(column) sayılarının eşleşmediğini söylüyor. Eşleşmeme nedeni ise UNION SELECT sorgusunun çalışması için sorguladıklarının kolon sayısının eşit olmayışıdır.
+
+        ```SQL
+            SELECT 1; --> sonucu 1 verir ama aynı zamanda 1 kolon getirir.
+            1
+
+* Bunun önüne geçmek için 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201' adresimizi 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11' olarak değiştiriyoruz. Burada amacımız aynı kolon sayısını bulmak bu yüzden sorgularımızı arttırıyoruz. Ekranımız yine geliyor. 'NOT: SQL INJECTION YOKSA HİÇ BİR ZAMAN KOLONLARI BULAMAZSIN. ÖNCE TESPİT SONRA ENJEKSİYON'
