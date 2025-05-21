@@ -119,5 +119,11 @@ Referans Sayfası:
 türkçesi gibi: 
 'FROM information_schema.tables WHERE table_schema = database()' = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir. Ve bu gelen bilgi de 7. sorgunun yerinde gösteriliyor çünkü oraya table_name yazdık.
 
-YENİ ÇEKTİĞİMİZ VERİLERİ:
+YENİ ÇEKTİĞİMİZ VERİLER:
     ![alt text](image-10.png)
+
+
+* Burada aslında SQL injection saptandıktan sonra veri çekme işleminin ne denli detaylı hale gelebileceğini görmüş olduk. SQL parametlerine ve sorgularına hakim olunduğu taktirde adres kısmından farklı fonksiyonlar kullanılarak bir çok veri çekilebilir.
+
+* Bu yazı boyunca öğrendiğimiz SQL injection tipi 'UNION SQLi' olarak adlandırılıyor.
+
