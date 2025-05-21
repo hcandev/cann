@@ -15,3 +15,5 @@
     * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
     
 ```SQL 
+SELECT 1;
+1
