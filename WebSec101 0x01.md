@@ -63,8 +63,8 @@
 
 * Girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
-    ![alt text](image-2.png)
+    ![alt text](image-4.png)
 
 * Bu sekmenin aynısından bir tane daha açıyoruz ve arama kısmındaki 'http://testphp.vulnweb.com/listproducts.php?cat=1' sorgusunun sonuna 1 yerine 2 yazıyoruz ve bu ekran çıkıyor:
 
-    ![alt text](image-3.png)
+    ![alt text](image-5.png)
