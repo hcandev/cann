@@ -5,6 +5,4 @@
 
 # SQL Injection Ne Demek?
 * Saldırganın web uygulamalarındaki var olan SQL sorgularını kendi lehine kullanabilmesidir. Adı üstünde 'SQL Enjeksiyonu'.
-
-
-![alt text](image.png)
+    ![alt text](image-1.png)
