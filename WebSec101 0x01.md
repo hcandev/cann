@@ -14,7 +14,7 @@
         * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
         * 'string' kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
         * 'INT' ifadesi integer (tam sayı) ifade eder.
-        
+
 * Aşağıda SQL kodunun bazı sorgularını kullanacağız ve temel prensiplerin bir kısmını anlamaya çalışacağız.
 
 ```SQL 
@@ -44,3 +44,6 @@ SELECT 'b'+'a'; --> veritabanı ikisini de sayıya dönüştüremiyor.
 
 SELECT '2' '1'; --> veritabanı iki stringi de tam sayıya dönüştürüyor ve birleştiriyor.
 21
+
+SELECT '2' '1' 'a'; --> veritabanı burada herhangi bir matematik işlemi olmadığı için 'a' yı 0 olarak almadı ve sonuç direkt 21a oldu. 
+21a 
