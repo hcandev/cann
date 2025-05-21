@@ -17,7 +17,7 @@
 
 ```SQL 
 SELECT 1;
-1
+1 --> integer sonuç.
 
 SELECT 2-1; --> sql veritabanı çıkarma işlemini tanıyor.
 1 --> integer sonuç.
@@ -26,4 +26,13 @@ SELECT 2+1; --> sql veritabanı toplama işlemini tanıyor.
 3 --> integer sonuç.
 
 SELECT '2-1'; --> sql veritabanı string işlemini tanıyor.
-'2-1'  --> string sonuç verir.
+'2-1'  --> string sonuç.
+
+SELECT '2'-'1'; --> sql veritabanı string olarak belirtilen karakterleri tam sayıya(integer) dönüştürdü ve çıkarma işlemi yaptı.
+1 --> integer sonuç.
+
+SELECT '2'+'1';
+3
+
+SELECT '2'+'a'; --> sql veritabanı burda '2' olarak verilen string'i integer(tam sayı) yapabiliyor ama 'a' stringini herhangi bir integer'a dönüştüremediği için 0 olarak alıyor ve toplama işlemini yapıyor.
+2
