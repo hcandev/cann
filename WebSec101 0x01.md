@@ -9,11 +9,21 @@
 
 # Bazı Temel SQL sorguları.
 * Başlarken SQL'in temelini anlamak gerekiyor. Dilin temelinde nasıl çalıştığını anlamak SQL Injection'ı anlamaktır. Dolayısıyla burası önemli.
-* Aşağıda paylaşacağım görseller https://www.youtube.com/watch?v=WtHnT73NaaQ&list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT videosundan olacak.
 * Buradaki ana hedef bazı temel SQL mantığını anlamaktır. Dolayısıyla sadece görseller burada yeterli olacaktır.
 * Kullanılacak bazı ifadeler için ön bilgi:
     * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
-    
+    * 'string' kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
+    * 'INT' ifadesi integer (tam sayı) ifade eder.
+
 ```SQL 
 SELECT 1;
 1
+
+SELECT 2-1; --> sql veritabanı çıkarma işlemini tanıyor.
+1 --> integer sonuç.
+
+SELECT 2+1; --> sql veritabanı toplama işlemini tanıyor.
+3 --> integer sonuç.
+
+SELECT '2-1'; --> sql veritabanı string işlemini tanıyor.
+'2-1'  --> string sonuç verir.
