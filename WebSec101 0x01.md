@@ -56,4 +56,10 @@
     0
 
 
-# Web Sitesi Üzerinden Uygulamalı SQL Injection.
+# Web Sitesi Üzerinden Uygulamalı SQL Injection
+
+* Şimdi bir web uygulamasında SQL Injection olup olmadığını anlamayı ve SQL Injection varsa neler yapılabileceğini göreceğiz.
+* http://testphp.vulnweb.com/categories.php bu web uygulaması alıştırma yapılabilmesi için test olarak geliştirilmiştir. Çalışırken bu kullanılacak.
+
+* Girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
+![alt text](image-2.png)
