@@ -34,5 +34,5 @@ SELECT '2'-'1'; --> sql veritabanı string olarak belirtilen karakterleri tam sa
 SELECT '2'+'1';
 3
 
-SELECT '2'+'a'; --> sql veritabanı burda '2' olarak verilen string'i integer(tam sayı) yapabiliyor ama 'a' stringini herhangi bir integer'a dönüştüremediği için 0 olarak alıyor ve toplama işlemini yapıyor.
+SELECT '2'+'a'; --> veritabanı '2' stringini 2 sayısına(integer) dönüştürebiliyor ama aynı şeyi 'a' stringi için yapamıyor ve onu 0 olarak alıyor.
 2
