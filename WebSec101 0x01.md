@@ -129,14 +129,15 @@ YENİ ÇEKTİĞİMİZ VERİLER:
 
 
 ## ERROR BASED SQLi
+    
+* Adı üstünde 'Hataya Bağlı SQL Enjeksiyonu' yani bir syntax hatası üzerinden gerçekleşen bir veri çekme türü. Syntax hatası yoksa bu tür bir veri çekme yapılamaz.
 
-* Kullanılacak bazı ifadeler için ön bilgi:
+    * Kullanılacak bazı ifadeler için ön bilgi:
     * 'syntax error' programlama dili kullanırken yazılan dizinlerde yapılan hatalar bu hatayı ifade eder.(sözdizimi hatası olarak türkçeleştirebiliriz.)
     * 'extractvalue()' adı üstünde 'değer çıkar'. Parantez içinde vereceğimiz girdilerle beraber veri tabanından değer çıkarıyor.
     * 'rand()' random'un yani rastgele'nin kısaltmasıdır. Karma işlemi yapar.
     * 'concat()' dizideki değerleri birleştirmek için kullanılır. Kısaca birleştirme işlemi yaptığını akılda tutsak yeter.
-    
-* Adı üstünde 'Hataya Bağlı SQL Enjeksiyonu' yani bir syntax hatası üzerinden gerçekleşen bir veri çekme türü. Syntax hatası yoksa bu tür bir veri çekme yapılamaz.
+
 
 * Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(sonda 1 yazan yer) YANINA can'can yazıyoruz. Rastgele yazdım zaten amacımız error almak olduğu için. Adresin son hali http://testphp.vulnweb.com/listproducts.php?cat=1can'can oluyor. Bunu yazdığımızda şöyle bir error geliyor:
 
@@ -156,3 +157,51 @@ YENİ ÇEKTİĞİMİZ VERİLER:
     ![alt text](image-12.png)
 
 * Görüldüğü üzere veritabanından veri çekebiliyoruz. Artık syntax error bize 'acuart' verisini veriyor. Bu şekilde syntax error kullanarak veri çekmeyi görmüş olduk.
+
+
+## Boolean Based SQLi
+
+
+* Adı üstünde boolean tabanlı sql enjeksiyonu. 
+
+    * Kullanılacak bazı ifadeler için ön bilgi:
+    * 'boolean' verilen girdilere göre doğru veya yanlış çıktısını üretir. 1 doğrudur. 0 yanlış. Programlama dillerinde oldukça fazla bulunur.
+    * 'ASCII' her yazı karakterinin ASCII kodu vardır.
+        ![alt text](image-13.png)
+        Görüldüğü üzere harflerin, sayıların ve özel karakterlerin sayı karşılığında bir kodu bulunur. Bu kodlar ASCII kodlarıdır.
+    * 'ascii()' karakterin ASCII kodunu döndürür. 
+    * 'substring()' belirtilen ölçütlere göre bir dizenin bir kısmını çıkartır.
+        örn, substring(
+            selam --> string ifadesi
+            ,1    --> başlangıç noktası  
+            ,1)   --> uzunluk            yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.
+
+    * 'LIMIT' adı üstünde sorguya bir limit koyuyor. 
+* 
+        ```SQL
+        SELECT * FROM haberler WHERE 
+        id = 1 and ASCII(
+            SUBSTRING(
+                (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
+                table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
+                ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
+                ,1
+            )
+        )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
+
+        --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde gerçekten 'u' harfi varsa burası TRUE dönecek. Buradaki 80 sayısını artırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlayabiliriz. 
+
+## TIME BASED SQLi
+
+* Adı üstünde Zaman Tabanlı SQL Enjeksiyonu.
+
+    * Kullanılacak bazı ifadeler için ön bilgi:
+        * 'IF(a,b,c)' bu fonksiyonda bir şart(a) verilir ve doğruysa b yanlışsa c çıktısını verir.
+            örn, IF(1=1, 1, 0) --> 1=1 ise 1 çıktısını ver değilse 0'ı ver.
+        * 'sleep()' parantez içine verilen değer(saniye cinsinden) boyunca veritabanını uyutur. 
+
+* Boolean Based Sqli her zaman çalışmayabilir. Bu senaryoda Time based sqli devreye giriyor.
+
+    ```SQL 
+        SELECT * FROM users WHERE id = IF(SUBSTRING(,,)1=1, sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
+    
