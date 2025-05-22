@@ -58,6 +58,8 @@
 
 # Web Sitesi Üzerinden Uygulamalı SQL Injection
 
+## UNION SQLi
+
 * Şimdi bir web uygulamasında SQL Injection olup olmadığını anlamayı ve SQL Injection varsa neler yapılabileceğini göreceğiz.
 * http://testphp.vulnweb.com/categories.php bu web uygulaması alıştırma yapılabilmesi için test olarak geliştirilmiştir. Çalışırken bu kullanılacak.
 
@@ -125,5 +127,32 @@ YENİ ÇEKTİĞİMİZ VERİLER:
 
 * Burada aslında SQL injection saptandıktan sonra veri çekme işleminin ne denli detaylı hale gelebileceğini görmüş olduk. SQL parametlerine ve sorgularına hakim olunduğu taktirde adres kısmından farklı fonksiyonlar kullanılarak bir çok veri çekilebilir.
 
-* Bu yazı boyunca öğrendiğimiz SQL injection tipi 'UNION SQLi' olarak adlandırılıyor.
 
+## ERROR BASED SQLi
+
+* Kullanılacak bazı ifadeler için ön bilgi:
+    * 'syntax error' programlama dili kullanırken yazılan dizinlerde yapılan hatalar bu hatayı ifade eder.(sözdizimi hatası olarak türkçeleştirebiliriz.)
+    * 'extractvalue()' adı üstünde 'değer çıkar'. Parantez içinde vereceğimiz girdilerle beraber veri tabanından değer çıkarıyor.
+    * 'rand()' random'un yani rastgele'nin kısaltmasıdır. Karma işlemi yapar.
+    * 'concat()' dizideki değerleri birleştirmek için kullanılır. Kısaca birleştirme işlemi yaptığını akılda tutsak yeter.
+    
+* Adı üstünde 'Hataya Bağlı SQL Enjeksiyonu' yani bir syntax hatası üzerinden gerçekleşen bir veri çekme türü. Syntax hatası yoksa bu tür bir veri çekme yapılamaz.
+
+* Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(sonda 1 yazan yer) YANINA can'can yazıyoruz. Rastgele yazdım zaten amacımız error almak olduğu için. Adresin son hali http://testphp.vulnweb.com/listproducts.php?cat=1can'can oluyor. Bunu yazdığımızda şöyle bir error geliyor:
+
+    ![alt text](image-11.png)
+
+* Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u çalıştıracağız hem de kod çalıştıracağız.
+
+* Şimdi can'can yazdığımız yeri silip onun yerine 'extractvalue(rand(), concat(1,(SELECT database())))' yazıyoruz.
+
+    * Bu kod basitçe veri çıkartma işlemini yapan kod. Yukarıya fonksiyon açıklamlarını yazdım ama çok detaya girersek ana fikirden uzaklaşırız. Google'dan SQL fonksiyonları ile ilgili çok kaynak var zaten. Mantığını anlamak şimdilik yeterli.
+
+* Adresin son hali şu şekilde oluyor: http://testphp.vulnweb.com/listproducts.php?cat=extractvalue(rand(), concat(1,(SELECT database())))
+
+
+* Şöyle bir ekranla karşılaşıyoruz:
+
+    ![alt text](image-12.png)
+
+* Görüldüğü üzere veritabanından veri çekebiliyoruz. Artık syntax error bize 'acuart' verisini veriyor. Bu şekilde syntax error kullanarak veri çekmeyi görmüş olduk.
