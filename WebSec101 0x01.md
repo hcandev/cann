@@ -145,7 +145,7 @@
 
 * Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u tetikleyeceğiz hem de sorgularımızı çalıştıracağız.
 
-* Şimdi can'can yazdığımız yeri silip onun yerine ***'extractvalue(rand(), concat(1,(SELECT database())))'*** yazıyoruz.
+* Şimdi can'can yazdığımız yeri silip onun yerine ***extractvalue(rand(), concat(1,(SELECT database())))*** yazıyoruz.
 
     * Bu kod basitçe veri çıkartma işlemini yapan kod. Yukarıya fonksiyon açıklamlarını yazdım ama çok detaya girersek mantıktan uzaklaşırız. Mantığını anlamak şimdilik yeterli.
 
