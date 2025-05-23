@@ -204,14 +204,29 @@
 
 ## TIME BASED SQLi
 
-* Adı üstünde Zaman Tabanlı SQL Enjeksiyonu.
+* Zaman Tabanlı SQL Enjeksiyonu.
 
     * Kullanılacak bazı ifadeler için ön bilgi:
-        * 'IF(a,b,c)' bu fonksiyonda bir şart(a) verilir ve doğruysa b yanlışsa c çıktısını verir.
-            örn, IF(1=1, 1, 0) --> 1=1 ise 1 çıktısını ver değilse 0'ı ver.
-        * 'sleep()' parantez içine verilen değer(saniye cinsinden) boyunca veritabanını uyutur. 
+        * ***'IF(a,b,c)'*** bu fonksiyonda bir şart(a) verilir ve doğruysa b yanlışsa c çıktısını verir.
+            örn, ***IF(1=1, 1, 0)*** --> 1=1 ise 1 çıktısını ver değilse 0'ı ver.
+        * ***'sleep()'*** parantez içine verilen değer(saniye cinsinden) boyunca veritabanını uyutur. 
+ 
 
 * Boolean Based Sqli her zaman çalışmayabilir. Bu senaryoda Time based sqli devreye giriyor.
+    * Yukarıdaki taslak kodumuzda referans olarak aşağıdaki print durumlarını düşünmüştük.
+
+        ```SQL
+            if result.size() > 0;
+                print("haber var") --> sonuc 0dan büyükse "haber var", 0dan küçükse "haber yok" yazcak konsolda.
+            else:
+                print("haber yok")
+    * Ama yukarıdaki iki farklı çıktı yerine şöyle bir şey de olabilir:
+
+        ```SQL
+            print("can")   
+
+    * Dolayısıyla aradığımız yukarıda bahsettiğimiz sıcak soğuk oyununu burada oynayamıyoruz. Çünkü ne yazarsak yazalım konsolda **"can"** çıktısını alacağız.
+
 
     ```SQL 
         SELECT * FROM users WHERE id = IF(SUBSTRING(,,)1=1, sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
