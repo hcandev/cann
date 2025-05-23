@@ -160,7 +160,7 @@
 ## Boolean Based SQLi
 
 
-* Adı üstünde boolean tabanlı sql enjeksiyonu. 
+* Boolean tabanlı sql enjeksiyonu. 
 
     * Kullanılacak bazı ifadeler için ön bilgi:
         * ***'boolean'*** verilen girdilere göre doğru veya yanlış çıktısını üretir. 1 doğrudur. 0 yanlış. Programlama dillerinde oldukça fazla bulunur.
