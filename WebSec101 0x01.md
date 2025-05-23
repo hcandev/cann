@@ -179,16 +179,16 @@
         * ***'LIMIT'*** adı üstünde sorguya bir limit koyuyor. 
 
         * İnceleme amaçlı örnek kod:
-        
+
         ```SQL
         
                 SELECT * FROM haberler WHERE 
                 id = 1 and ASCII(
                     SUBSTRING(
-                        (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
-                        table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
-                        ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
-                        ,1
+                        (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için bir sorgu. Yukarıda türkçeleştirmiştik.
+                        table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur. Aynı zamanda tahmini string olarak #users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
+                        ,1  --> başlangıç noktası
+                        ,1  --> uzunluk
                     )
                 )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
 
