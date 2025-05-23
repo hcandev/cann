@@ -66,7 +66,7 @@
     * Kullanılacak bazı ifadeler için ön bilgi:
         * 'column' ya da kolon ifadesi veritabanında çeşitli veri değerleri taşır.
         * 'UNION SELECT' ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
-        
+        * 'version()' bu fonksiyon veri tabananında versiyon verisini çıkartır.
 
 * Verilen web sitesine girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
@@ -106,7 +106,7 @@ Referans Sayfası:
 
 * Ana sayfadaki en son kısımda 7 2 9 sayılarını görme sebebimiz aslında adresimizde kolon sayılarının o noktalarda eşleştiğini gösteriyor. Dolayısıyla 7 2 veya 9 olan kısımlarla biz etkileşime geçebiliyoruz:
 
-* 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine versiyon yazdık ve 7 yazan yerde artık versiyon bilgisini alıyoruz.
+* 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine 'version()' yazdık ve 7 yazan yerde artık versiyon bilgisini alıyoruz.
 
     ARTIK VERİ ÇIKARTMAYA BAŞLADIK
     ![alt text](<WebSec101 0x01_ss/image-8.png>)
