@@ -209,7 +209,7 @@
     * Kullanılacak bazı ifadeler için ön bilgi:
         * ***'IF(a,b,c)'*** bu fonksiyonda bir şart(a) verilir ve doğruysa b yanlışsa c çıktısını verir.
             örn, ***IF(1=1, 1, 0)*** --> 1=1 ise 1 çıktısını ver değilse 0'ı ver.
-        * ***'sleep()'*** parantez içine verilen değer(saniye cinsinden) boyunca veritabanını uyutur. 
+        * ***'sleep()'*** parantez içine verilen değer(saniye cinsinden) boyunca veritabanını uyutur. Ve geçen süre olarak çıktı üretir.
  
 
 * Boolean Based Sqli her zaman çalışmayabilir. Bu senaryoda Time based sqli devreye giriyor.
@@ -232,7 +232,7 @@
     ```SQL 
         SELECT * FROM users WHERE id = IF(SUBSTRING(,,)='a', sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
 
-* Burada yaptığımız işlemde gerçekleşirken sorgu ve veritabanı arasındaki iletişim ile gerçekleşiyor. Dolayısıyla arada bir sorgu-cevap ilişkisi var. Yani biz yukarıdaki kodu yazdığımızda, o kodun veritabanına gitmesi ve tekrar bize geri gelmesi arasında bir süre geçiyor. Ve eğer aradığımız karakter veritabanında bulunuyorsa sleep(5) fonksiyonu devreye girecek ve konsolda çıktı olarak geçen süreye eklenecektir. Dolayısıyla eğer doğruysa 5 ten büyük değerde bir süre geçmiş olacaktır.  
+* Biz yukarıdaki kodu yazdığımızda, o kodun veritabanına gitmesi ve tekrar bize geri gelmesi arasında bir süre geçiyor. Eğer aradığımız karakter(a) veritabanında bulunuyorsa sleep(5) fonksiyonu devreye girecek ve konsolda çıktı olarak geçen süreye eklenecektir. Dolayısıyla eğer yukarıdaki şart doğruysa 5 ten büyük değerde bir süre geçmiş olacaktır. Ve bunu gördüğümüzde aradığımız karakterin veritabanında olduğunu doğrulamış olacağız. 
 
 
 ##
