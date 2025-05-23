@@ -118,7 +118,7 @@
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11' bu adresin devamına, **FROM information_schema.tables WHERE table_schema = database()** yazarak ve entera basarak farklı bir veri akışı sağlayacağız. Buradaki **FROM information_schema.tables WHERE table_schema = database()** sorgusunda aslında sitedeki kolon isimlerinin verisini çekiyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak, sitede 7 yazan başlığa çekiyoruz.
 
-    türkçesi gibi: 
+    ***Türkçesi(gibi):*** 
     **FROM information_schema.tables WHERE table_schema = database()** = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir.
 
 ***YENİ ÇEKTİĞİMİZ VERİLER:***
@@ -130,16 +130,16 @@
 
 ## ERROR BASED SQLi
     
-* Adı üstünde 'Hataya Bağlı SQL Enjeksiyonu' yani bir syntax hatası üzerinden gerçekleşen bir veri çekme türü. Syntax hatası yoksa bu tür bir veri çekme yapılamaz.
+* Adı üstünde ***'Hataya Bağlı SQL Enjeksiyonu'*** yani bir syntax hatası üzerinden gerçekleşen bir veri çekme türü. Syntax hatası yoksa bu tür bir veri çekme yapılamaz.
 
     * Kullanılacak bazı ifadeler için ön bilgi:
-    * 'syntax error' programlama dili kullanırken yazılan dizinlerde yapılan hatalar bu hatayı ifade eder.(sözdizimi hatası olarak türkçeleştirebiliriz.)
-    * 'extractvalue()' adı üstünde 'değer çıkar'. Parantez içinde vereceğimiz girdilerle beraber veri tabanından değer çıkarıyor.
-    * 'rand()' random'un yani rastgele'nin kısaltmasıdır. Karma işlemi yapar.
-    * 'concat()' dizideki değerleri birleştirmek için kullanılır. Kısaca birleştirme işlemi yaptığını akılda tutsak yeter.
+    * ***'syntax error'*** programlama dili kullanırken yazılan dizinlerde yapılan hatalar bu hatayı ifade eder.(sözdizimi hatası olarak türkçeleştirebiliriz.)
+    * ***'extractvalue()'*** adı üstünde 'değer çıkar'. Parantez içinde vereceğimiz girdilerle beraber veri tabanından değer çıkarıyor.
+    * ***'rand()'*** random'un yani rastgele'nin kısaltmasıdır. Karma işlemi yapar.
+    * ***'concat()'*** dizideki değerleri birleştirmek için kullanılır. Kısaca birleştirme işlemi yaptığını akılda tutsak yeter.
 
 
-* Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(sonda 1 yazan yer) YANINA can'can yazıyoruz. Rastgele yazdım zaten amacımız error almak olduğu için. Adresin son hali http://testphp.vulnweb.com/listproducts.php?cat=1can'can oluyor. Bunu yazdığımızda şöyle bir error geliyor:
+* Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(en son da 1 yazan yer) yanına ***can'can*** yazıyoruz. Rastgele yazdım zaten amacımız error almak. Bunu yazdığımızda şöyle bir error geliyor:
 
     ![alt text](<WebSec101 0x01_ss/image-11.png>)
 
