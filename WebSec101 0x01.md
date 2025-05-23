@@ -114,7 +114,7 @@ Referans Sayfası:
 * Şimdi veri ekranımızı biraz daha temiz hale getirebiliriz. 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' adresimizde '='den sonra gelen yere '-9999999' yazarsak önceki kolonlardan kurtulmuş oluyoruz ve daha temiz bir görüntü elde ediyoruz:
 
     ![alt text](<WebSec101 0x01_ss/image-9.png>)
-    * Bunun olma sebebi aslında biz 'http://testphp.vulnweb.com/listproducts.php?cat=1' sondaki id'yi değiştirmiş olduk. Onu çok büyük bir sayıyla değiştirdiğimiz vakit veriler kayboluyor. Yani referans sitesindekiyle de değişsek yine kolonlardaki veriler kaybolacak.
+    * Bunun olma sebebi aslında biz 'http://testphp.vulnweb.com/listproducts.php?cat=1' sondaki id'yi değiştirmiş olduk.Id'yi değişince de ona eş değer bir veri tablosu olmadığı için boş sayfa geliyor. Yani bizim çektiğimiz veriler(id'nin sağına yazdığmız sql sorguları) dışındakiler gelmiyor.
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11 FROM information_schema.tables WHERE table_schema = database()' web adresini bu şekilde değiştiğimizde farklı bir veri akışı sağlayacağız. Buradaki 'FROM information_schema.tables WHERE table_schema = database()' sorguda aslında SQL'e ait sorguları kullanarak sitedeki kolon isimlerinin verisini çekebiliyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak çekiyoruz.
 
