@@ -5,7 +5,7 @@
 
 # SQL Injection Ne Demek?
 * Saldırganın web uygulamalarındaki SQL sorgularını kendi lehine kullanabilmesidir. Adı üstünde 'SQL Enjeksiyonu'.
-    ![alt text](image-1.png)
+    WebSec101 0x01_ss/image-1.png
 
 # Bazı Temel SQL sorguları.
 * Başlarken SQL'in temelini anlamak gerekiyor. Dilin temelinde nasıl çalıştığını anlamak SQL Injection'ı anlamaktır. Dolayısıyla burası önemli.
@@ -70,7 +70,7 @@
 
 * Verilen web sitesine girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
-    ![alt text](image-4.png)
+    ![alt text](WebSec101 0x01_ss/image-4.png)
 
 * Burada SQL Injection tespit etmek için bir fırsat var. 'http://testphp.vulnweb.com/listproducts.php?cat=1' adresinin son kısmını 'http://testphp.vulnweb.com/listproducts.php?cat=2-1' olarak değiştirdiğinizde yine aynı siteye girdiğimizi göreceğiz: (Yukarıdaki temel bilgilerde SELECT 2-1; 1 sonucunu veriyordu.)
 
