@@ -116,7 +116,7 @@ Referans Sayfası:
     ![alt text](<WebSec101 0x01_ss/image-9.png>)
     * Bunun olma sebebi aslında biz 'http://testphp.vulnweb.com/listproducts.php?cat=1' sondaki id'yi değiştirmiş olduk.Id'yi değişince de ona eş değer bir veri tablosu olmadığı için boş sayfa geliyor. Yani bizim çektiğimiz veriler(id'nin sağına yazdığmız sql sorguları) dışındakiler gelmiyor.
 
-* 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11 FROM information_schema.tables WHERE table_schema = database()' web adresini bu şekilde değiştiğimizde farklı bir veri akışı sağlayacağız. Buradaki 'FROM information_schema.tables WHERE table_schema = database()' sorguda aslında SQL'e ait sorguları kullanarak sitedeki kolon isimlerinin verisini çekebiliyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak çekiyoruz.
+* 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11' bu adresin devamına, 'FROM information_schema.tables WHERE table_schema = database()' yazarak ve entera basarak farklı bir veri akışı sağlayacağız. Buradaki 'FROM information_schema.tables WHERE table_schema = database()' sorguda aslında SQL'e ait sorguları kullanarak sitedeki kolon isimlerinin verisini çekebiliyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak çekiyoruz.
 
 türkçesi gibi: 
 'FROM information_schema.tables WHERE table_schema = database()' = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir. Ve bu gelen bilgi de 7. sorgunun yerinde gösteriliyor çünkü oraya table_name yazdık.
