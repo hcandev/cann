@@ -163,18 +163,18 @@
 * Adı üstünde boolean tabanlı sql enjeksiyonu. 
 
     * Kullanılacak bazı ifadeler için ön bilgi:
-    * 'boolean' verilen girdilere göre doğru veya yanlış çıktısını üretir. 1 doğrudur. 0 yanlış. Programlama dillerinde oldukça fazla bulunur.
-    * 'ASCII' her yazı karakterinin ASCII kodu vardır.
-        ![alt text](<WebSec101 0x01_ss/image-13.png>)
-        Görüldüğü üzere harflerin, sayıların ve özel karakterlerin sayı karşılığında bir kodu bulunur. Bu kodlar ASCII kodlarıdır.
-    * 'ascii()' karakterin ASCII kodunu döndürür. 
-    * 'substring()' belirtilen ölçütlere göre bir dizenin bir kısmını çıkartır.
-        örn, substring(
-            selam --> string ifadesi
-            ,1    --> başlangıç noktası  
-            ,1)   --> uzunluk            yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.
+        * ***'boolean'*** verilen girdilere göre doğru veya yanlış çıktısını üretir. 1 doğrudur. 0 yanlış. Programlama dillerinde oldukça fazla bulunur.
+        * ***'ASCII'*** harflerin ve özel karakterlerin bir sayıya denk düşen ASCII kodu vardır.
+            ![alt text](<WebSec101 0x01_ss/image-13.png>)
+                Görüldüğü üzere harflerin, sayıların ve özel karakterlerin sayı karşılığında **(Dec yazan sütunun altındaki sayılar)** bir kodu bulunur. Bu kodlar ASCII kodlarıdır.
+        * ***'ascii()'*** karakterin ASCII kodunu döndürür. 
+        * ***'substring()'*** belirtilen ölçütlere göre bir dizenin bir kısmını çıkartır.
+            örn, substring(
+                selam --> string ifadesi
+                ,1    --> başlangıç noktası  
+                ,1)   --> uzunluk            ***yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.***
 
-    * 'LIMIT' adı üstünde sorguya bir limit koyuyor. 
+        * ***'LIMIT'*** adı üstünde sorguya bir limit koyuyor. 
 * 
         ```SQL
         SELECT * FROM haberler WHERE 
