@@ -74,7 +74,7 @@
 
 * Burada SQL Injection tespit etmek için bir fırsat var. 'http://testphp.vulnweb.com/listproducts.php?cat=1' adresinin son kısmını 'http://testphp.vulnweb.com/listproducts.php?cat=2-1' olarak değiştirdiğinizde yine aynı siteye girdiğimizi göreceğiz: (Yukarıdaki temel bilgilerde SELECT 2-1; 1 sonucunu veriyordu.)
 
-    ![alt text](image-3.png)
+    ![alt text](<WebSec101 0x01_ss/image-3.png>)
     * Bu durumda SQL Injection olduğunu söyleyebiliriz. İşlemlerimize SQL Injection olduğundan emin olduktan sonra devam ediyoruz. 
 
 
