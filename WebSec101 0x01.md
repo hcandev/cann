@@ -5,7 +5,7 @@
 
 # SQL Injection Ne Demek?
 * Saldırganın web uygulamalarındaki SQL sorgularını kendi lehine kullanabilmesidir. Adı üstünde 'SQL Enjeksiyonu'.
-    WebSec101 0x01_ss/image-1.png
+    ![alt text](<WebSec101 0x01_ss/image-1.png>)
 
 # Bazı Temel SQL sorguları.
 * Başlarken SQL'in temelini anlamak gerekiyor. Dilin temelinde nasıl çalıştığını anlamak SQL Injection'ı anlamaktır. Dolayısıyla burası önemli.
