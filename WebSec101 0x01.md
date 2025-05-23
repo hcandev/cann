@@ -9,14 +9,13 @@
 
 # Bazı Temel SQL sorguları.
 * Başlarken SQL'in temelini anlamak gerekiyor. Dilin temelinde nasıl çalıştığını anlamak SQL Injection'ı anlamaktır. Dolayısıyla burası önemli.
-* Buradaki ana hedef bazı temel SQL mantığını anlamaktır.
     * Kullanılacak bazı ifadeler için ön bilgi:
         * 'SELECT' ifadesi veritabanından veri sorgulamak için kullanılır.
         * 'string' kavramı programlama dillerinde karakterlerden oluşan dizileri ifade eder. Genellikle karakterler tırnak içinde belirtilir. 'araba', '2121231' gibi. Farklı programlama dillerinde bunları belirtme biçimi değişebilir.
         * 'INT' ifadesi integer (tam sayı) ifade eder.
 
 
-* Aşağıda SQL kodunun bazı sorgularını kullanacağız ve temel prensiplerin bir kısmını anlamaya çalışacağız.
+* Aşağıda SQLin veritabanı mantığını anlamak amacıyla çeşitli sorgular girdik. Burada kodun bazı temel davranışlarını kavrayacağız.
 
     ```SQL 
     SELECT 1;
@@ -61,12 +60,13 @@
 ## UNION SQLi
 
 * Şimdi bir web uygulamasında SQL Injection olup olmadığını anlamayı ve SQL Injection varsa neler yapılabileceğini göreceğiz.
-* http://testphp.vulnweb.com/categories.php bu web uygulaması alıştırma yapılabilmesi için test olarak geliştirilmiştir. Çalışırken bu kullanılacak.
+* http://testphp.vulnweb.com/categories.php bu web uygulaması alıştırma yapılabilmesi için test olarak geliştirilmiştir. Çalışmamızı buradan yapacağız.
 
 
-* Kullanılacak bazı ifadeler için ön bilgi:
-    * 'UNION SELECT' ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
-    * 'column' ifadesi uygulamalardaki kolonları ifade eder.
+    * Kullanılacak bazı ifadeler için ön bilgi:
+        * 'column' ya da kolon ifadesi veritabanında çeşitli veri değerleri taşır.
+        * 'UNION SELECT' ifadesi 2 veya daha fazla SELECT sorgusunu tek bir sonuç olarak gösterir. Sorgusu yapılanların kolon(column) sayıları eşit olmalıdır yoksa bu sorgu çalışmaz.
+        
 
 * Verilen web sitesine girdikten sonra 'Browse Categories' kısmına gelip 'Posters' sekmesine tıklıyoruz ve şöyle bir ekran çıkıyor:
 
