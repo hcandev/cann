@@ -139,15 +139,15 @@
     * ***'concat()'*** dizideki değerleri birleştirmek için kullanılır. Kısaca birleştirme işlemi yaptığını akılda tutsak yeter.
 
 
-* Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(en son da 1 yazan yer) yanına ***can'can*** yazıyoruz. Rastgele yazdım zaten amacımız error almak. Bunu yazdığımızda şöyle bir error geliyor:
+* Şimdi yine 'http://testphp.vulnweb.com/listproducts.php?cat=1' bu adrese geliyoruz ve id'nin(en son da 1 yazan yer) yanına ***can'can*** yazıyoruz. Rastgele yazdım zaten amacımız error almak. Adresin son hali http://testphp.vulnweb.com/listproducts.php?cat=1can'can oluyor. Bunu yazdığımızda şöyle bir error geliyor:
 
     ![alt text](<WebSec101 0x01_ss/image-11.png>)
 
-* Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u çalıştıracağız hem de kod çalıştıracağız.
+* Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u tetikleyeceğiz hem de sorgularımızı çalıştıracağız.
 
-* Şimdi can'can yazdığımız yeri silip onun yerine 'extractvalue(rand(), concat(1,(SELECT database())))' yazıyoruz.
+* Şimdi can'can yazdığımız yeri silip onun yerine ***'extractvalue(rand(), concat(1,(SELECT database())))'*** yazıyoruz.
 
-    * Bu kod basitçe veri çıkartma işlemini yapan kod. Yukarıya fonksiyon açıklamlarını yazdım ama çok detaya girersek ana fikirden uzaklaşırız. Google'dan SQL fonksiyonları ile ilgili çok kaynak var zaten. Mantığını anlamak şimdilik yeterli.
+    * Bu kod basitçe veri çıkartma işlemini yapan kod. Yukarıya fonksiyon açıklamlarını yazdım ama çok detaya girersek mantıktan uzaklaşırız. Mantığını anlamak şimdilik yeterli.
 
 * Adresin son hali şu şekilde oluyor: http://testphp.vulnweb.com/listproducts.php?cat=extractvalue(rand(), concat(1,(SELECT database())))
 
