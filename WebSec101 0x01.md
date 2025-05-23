@@ -225,10 +225,14 @@
         ```SQL
             print("can")   
 
-    * Dolayısıyla aradığımız yukarıda bahsettiğimiz sıcak soğuk oyununu burada oynayamıyoruz. Çünkü ne yazarsak yazalım konsolda **"can"** çıktısını alacağız.
+    * Dolayısıyla aradığımız veriyi bulmak için yukarıda bahsettiğimiz sıcak soğuk oyununu burada oynayamıyoruz. Çünkü ne yazarsak yazalım konsolda **"can"** çıktısını alacağız.
 
+* Şöyle bir yöntem daha var:
 
     ```SQL 
-        SELECT * FROM users WHERE id = IF(SUBSTRING(,,)1=1, sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
-    
+        SELECT * FROM users WHERE id = IF(SUBSTRING(,,)='a', sleep(5), 0) --> burda sorgu ile  veritabanından gelen cevap arasındaki süre 5 saniyeden fazlaysa aranılan değer bulundu demektir.
+
+* Burada yaptığımız işlemde gerçekleşirken sorgu ve veritabanı arasındaki iletişim ile gerçekleşiyor. Dolayısıyla arada bir sorgu-cevap ilişkisi var. Yani biz yukarıdaki kodu yazdığımızda, o kodun veritabanına gitmesi ve tekrar bize geri gelmesi arasında bir süre geçiyor. Ve eğer aradığımız karakter veritabanında bulunuyorsa sleep(5) fonksiyonu devreye girecek ve konsolda çıktı olarak geçen süreye eklenecektir. Dolayısıyla eğer doğruysa 5 ten büyük değerde bir süre geçmiş olacaktır.  
+
+
 ##
