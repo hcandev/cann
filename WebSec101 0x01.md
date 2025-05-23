@@ -169,25 +169,27 @@
                 Görüldüğü üzere harflerin, sayıların ve özel karakterlerin sayı karşılığında **(Dec yazan sütunun altındaki sayılar)** bir kodu bulunur. Bu kodlar ASCII kodlarıdır.
         * ***'ascii()'*** karakterin ASCII kodunu döndürür. 
         * ***'substring()'*** belirtilen ölçütlere göre bir dizenin bir kısmını çıkartır.
-            örn, substring(
-                selam --> string ifadesi
-                ,1    --> başlangıç noktası  
-                ,1)   --> uzunluk            ***yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.***
+            örn, 
+            ```SQL
+                substring(
+                    selam --> string ifadesi
+                    ,1    --> başlangıç noktası  
+                    ,1)   --> uzunluk            ***yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.***
 
         * ***'LIMIT'*** adı üstünde sorguya bir limit koyuyor. 
 * 
         ```SQL
-        SELECT * FROM haberler WHERE 
-        id = 1 and ASCII(
-            SUBSTRING(
-                (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
-                table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
-                ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
-                ,1
-            )
-        )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
+            SELECT * FROM haberler WHERE 
+            id = 1 and ASCII(
+                SUBSTRING(
+                    (SELECT table_name FROM information_schema.tables WHERE --> database'den veri çekmek için yukarıda gösterdiğimiz sorguların aynısı.
+                    table_schema=database() LIMIT 1,1) #users --> Burada limit koyuyoruz çünkü almak istediğimiz verileri daraltmak için. Yoksa her tarafta veri olur.
+                    ,1  --> tahmini string users yazdık ve ilk harfinin veritabanında uyuşup uyuşmadığını öğrenmek istiyoruz.
+                    ,1
+                )
+            )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
 
-        --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde gerçekten 'u' harfi varsa burası TRUE dönecek. Buradaki 80 sayısını artırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlayabiliriz. 
+            --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde gerçekten 'u' harfi varsa burası TRUE dönecek. Buradaki 80 sayısını artırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlayabiliriz. 
 
 ## TIME BASED SQLi
 
