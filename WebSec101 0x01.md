@@ -192,7 +192,14 @@
                     )
                 )> 80 --> Sıcak soğuk oyunu tarzı bir oyun başlıyor.
 
-                --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde 'u' harfi varsa burası TRUE dönecek(yani output 1 yazacak ya da her ). Buradaki 80 sayısını arttırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlıyoruz. 
+
+                if result.size() > 0;
+                    print("haber var") --> sonuc 0dan büyükse "haber var", 0dan küçükse "haber yok" yazcak konsolda.
+                else:
+                    print("haber yok")
+
+                --> biz 'users' ilk harfinin eşleşip eşleşmediğini bulmak istiyoruz. 'u' harfinin ASCII tablosundaki sayı karşılığı 117. Dolayısıyla 117>80 olduğu için burada eğer veritabanındaki stringde 'u' harfi varsa burası TRUE dönecek(yani konsolda 'haber var' yazacak.). Buradaki 80 sayısını arttırıp azaltarak istediğimiz karakterlerin veritabanında var olup olmadığını anlıyoruz. 
+
     *  ***Bu şekilde de Boolean Based Injection'ı görmüş olduk.*** 
 
 ## TIME BASED SQLi
