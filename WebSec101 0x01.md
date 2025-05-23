@@ -177,7 +177,7 @@
                     ,1)   --> uzunluk            ***yani buradaki sonuçta seçilen yazı dizisi 'selam' başlangıç noktası 1 yani 's' ve uzunluk da 1. Yani sonuç 's' oluyor.***
 
         * ***'LIMIT'*** adı üstünde sorguya bir limit koyuyor. 
-* 
+ 
         ```SQL
         
                 SELECT * FROM haberler WHERE 
