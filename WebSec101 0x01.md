@@ -145,18 +145,16 @@
 
 * Evet syntax error verdi hedeflediğimiz gibi. Şimdi burda amacımız bu error yazısını kullanarak veri çekmek. Bunu da syntax error verecek şekilde SQL kodları yazacağız. Yani hem syntax error'u tetikleyeceğiz hem de sorgularımızı çalıştıracağız.
 
-* Şimdi ***can'can*** yazdığımız yeri silip onun yerine ***extractvalue(rand(), concat(1,(SELECT database())))*** yazıyoruz.
+* Şimdi ***can'can*** yazdığımız yeri silip onun yerine **extractvalue(rand(), concat(1,(SELECT database())))** yazıyoruz.
 
     * Bu kod basitçe veri çıkartma işlemini yapan kod. Yukarıya fonksiyon açıklamlarını yazdım ama çok detaya girersek mantıktan uzaklaşırız. Mantığını anlamak şimdilik yeterli.
-
-* Adresin son hali şu şekilde oluyor: http://testphp.vulnweb.com/listproducts.php?cat=extractvalue(rand(), concat(1,(SELECT database())))
 
 
 * Şöyle bir ekranla karşılaşıyoruz:
 
     ![alt text](<WebSec101 0x01_ss/image-12.png>)
 
-* Görüldüğü üzere veritabanından veri çekebiliyoruz. Artık syntax error bize 'acuart' verisini veriyor. Bu şekilde syntax error kullanarak veri çekmeyi görmüş olduk.
+* Görüldüğü üzere veritabanından veri çekebiliyoruz. Artık syntax error bize **'acuart'** verisini veriyor. Bu şekilde syntax error kullanarak veri çekmeyi görmüş olduk.
 
 
 ## Boolean Based SQLi
