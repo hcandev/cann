@@ -235,4 +235,4 @@
 * Biz yukarıdaki kodu yazdığımızda, o kodun veritabanına gitmesi ve tekrar bize geri gelmesi arasında bir süre geçiyor. Eğer aradığımız karakter(a) veritabanında bulunuyorsa sleep(5) fonksiyonu devreye girecek ve konsolda çıktı olarak geçen süreye eklenecektir. Dolayısıyla eğer yukarıdaki şart doğruysa 5 ten büyük değerde bir süre geçmiş olacaktır. Ve bunu gördüğümüzde aradığımız karakterin veritabanında olduğunu doğrulamış olacağız. 
 
 
-##
+## Out-of-Band SQLi
