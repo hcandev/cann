@@ -166,3 +166,8 @@ Sistemi test ederken birden fazla kullanıcı eklememiz gerektiğinden çok fazl
 https://github.com/nccgroup/autochrome
 
 ![alt text](image-25.png)
+
+
+# KAYNAK
+[Web Security 101 0x02 | IDOR Insecure Direct Object Reference Zafiyetleri Hakkında Her şey — Mehmet İnce — Youtube](https://www.youtube.com/watch?v=TsJ2XPuGe1k&list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT&index=2)
+https://medium.com/@aysebilgegunduz/everything-you-need-to-know-about-idor-insecure-direct-object-references-375f83e03a87
