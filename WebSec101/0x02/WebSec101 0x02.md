@@ -29,5 +29,8 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
     **İkinci Hesap**
     ![alt text](image-1.png)
 
-* İlk hesaba bir adres ekleniyor MDI-1 Adresi adında:
+* İlk hesaba bir adres ekleniyor **'MDI-1 Adresi'** adında:
     ![alt text](image-2.png)
+
+* İkinci hesaba da bir adres ekleniyor. İsmi **'MDI-2 Adresi'**:
+    ![alt text](image-3.png)
