@@ -85,3 +85,7 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
 * Sonuç olarak bu web uygulamasında **IDOR** zaafiyetinden bahsedemeyiz. Çünkü bir kullanıcının hesabından başka bir kullanıcının adresini silmek başarılamıyor. Eğer silinebilseydi IDOR'dan bahsedebilirdik. 
 
+# Missing Function Level Access
+
+* **'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliğini'** olarak türkçeleştiriliyor. Genelde IDOR ile karıştırılır.
+
