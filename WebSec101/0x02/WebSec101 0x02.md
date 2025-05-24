@@ -105,3 +105,13 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
     ![alt text](image-15.png)
 
+* Bu ekranda aşağı indiğimizde **'edit'** fonksiyonunu görüyoruz ve yanında  diğer fonksiyonlar gibi **'404'** yazmıyor **'202'** yazıyor. Demek ki bu fonksiyon site arayüzünde olmasa dahi veritabanında arka planda mevcut ve işler vaziyette. Site arayüzünde editlemeye dair bir seçenek yoktu sadece delete vardı hatırlarsak.
+
+* Şimdi **edit** fonksiyonunu adrese yazılıyor. **'address/edit/15'** Bu yazıldığınd aşağıdaki ekrana ulaşılabiliyor:
+
+    ![alt text](image-18.png)
+
+    * Bu zaafiyette, ***edit*** isimli bir fonksiyonun bana yani kullanıcıya sunulmadığı halde erişebilmem söz konusudur. Bu zaafiyetin adı ise ***'Missing Function Level Access'*** ya da diğer adıyla ***'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliği'***dir.
+
+
+
