@@ -133,4 +133,12 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
 * Burp Suite'de buradaki yapılan satın alma sorgusunu görüyoruz. Satın alan kullanıcının adres id'si 17 olarak gözüküyor. Şimdi soru şu, biz bu id'yi değiştirsek ve satın alan 17 adresine sahip olan kullanıcı olduğu halde adres olarak girdiğimiz id işlense ve ürün ona gitse, bu mümkün mü? Basitleştirirsem, ben kalem sipariş verdim ama satın alan ben olduğum halde ürün başkasına gitti bu veri sızdırma yüzünden. 
 
-* 
+* Görseldeki 17 id'si yerin 18 yazılıyor ve forward ediliyor.
+
+* Sonrasında sipariş bilgilerine bakıldığında:
+
+    ![alt text](image-22.png)
+
+* Adres bilgisinde id'si 18 olarak belirlenen adres çıkıyor. Yani id'si 17 olan sipariş verdi ama id'si 18 olan kişiye gitti ürün.
+
+* Bu zaafiyetin adı da ***Second Order Insecure Direct Object Reference******(İkinci Derece IDOR)***. 
