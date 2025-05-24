@@ -153,8 +153,16 @@ Günümüzde bir web uygulamasında birbiriyle ilişkili çok katmanlı yapılar
 
 # IDOR Nasıl Bulunabilir?
 
-## Auth Matrix
+## AuthMatrix
 
-Burp Suite uygulamasının **'Auth Matrix'** kısmına gelip, incelemekte olduğumuz web uygulaması için yetki ve bu yetkilerin kime ait olduğunu gösteren tanımlamalar yapabiliyoruz. Bu tanımlamaları da simüle ederek denemelere tabii tutabiliriz. Bu sayede hangi kullanıcının neyi görebildiğini öğrenebiliriz.
+Burp Suite uygulamasının **'AuthMatrix'** kısmına gelip, incelemekte olduğumuz web uygulaması için yetki ve bu yetkilerin kime ait olduğunu gösteren tanımlamalar yapabiliyoruz. Bu tanımlamaları da simüle ederek denemelere tabii tutabiliriz. Bu sayede hangi kullanıcının neyi görebildiğini öğrenebiliriz.
 
 ![alt text](image-24.png)
+
+## autochrome
+
+Sistemi test ederken birden fazla kullanıcı eklememiz gerektiğinden çok fazla tarayıcı açmamız gerekebilir. Burada da her kullanıcı için ayrı sekmede işlem yapmamızı kolaylaştıracak bir diğer araç autochrome'dur. Yapılan işlemler birbiriyle karışmayacağından oldukça verimli bir araçtır. 
+
+https://github.com/nccgroup/autochrome
+
+![alt text](image-25.png)
