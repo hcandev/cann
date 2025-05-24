@@ -153,3 +153,8 @@ Günümüzde bir web uygulamasında birbiriyle ilişkili çok katmanlı yapılar
 
 # IDOR Nasıl Bulunabilir?
 
+## Auth Matrix
+
+Burp Suite uygulamasının **'Auth Matrix'** kısmına gelip, incelemekte olduğumuz web uygulaması için yetki ve bu yetkilerin kime ait olduğunu gösteren tanımlamalar yapabiliyoruz. Bu tanımlamaları da simüle ederek denemelere tabii tutabiliriz. Bu sayede hangi kullanıcının neyi görebildiğini öğrenebiliriz.
+
+    ![alt text](image-24.png)
