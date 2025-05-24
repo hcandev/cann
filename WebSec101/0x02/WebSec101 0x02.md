@@ -142,3 +142,14 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 * Adres bilgisinde id'si 18 olarak belirlenen adres çıkıyor. Yani id'si 17 olan sipariş verdi ama id'si 18 olan kişiye gitti ürün.
 
 * Bu zaafiyetin adı da ***Second Order Insecure Direct Object Reference******(İkinci Derece IDOR)***. 
+
+# Web Dünyasındaki En Zor Zaafiyet: IDOR
+
+Zaafiyetler ikiye ayrılıyor; ***Teknik Zaafiyetler ve Business Logic(İş Mantığında) Zaafiyetler*** . IDOR' Business Logic Zaafiyetlerine girmektedir. Bu tarz zaafiyetlerde bir saldırı kodu bulunmaz. Dolayısıyla saldırı tespit sistemlerinde bu tarz açıklardan haberdar olunamaz. Kod incelemesinde bunu anlaması da son derece zordur. Yani bu tarz bi zaafiyetin olmaması büyük oranda geliştiriciye kalıyor. Onun bu tarz açıkları uygulamayı tasarlarken iyi düşünmesi gerekir. 
+
+# Bu Tür Zaafiyetlerin Ortaya Çıkışı
+
+Günümüzde bir web uygulamasında birbiriyle ilişkili çok katmanlı yapılar söz konusudur. Örneğin bir e ticaret sitesinde veritabanında kullanıcının bilgilerine erişmesi gereken uygulamalar vardır. Bu uygulamaların her biri farklı geliştiriciler tarafından geliştirilmiş olabilir ki çoğunlukla öyledir. Bu e ticaret sitesinde kullanıcı bilgilerine erişmesi gereken farklı uygulamalar veri tabanından bilgileri çekmektedir ve zaafiyetler de buradan doğmaktadır. Farklı geliştiriciler farklı uygulama kod yapısını bize gösterir. Bu kod yapıları gereğince de veritabanından çekeceği verileri ve verilerin gizliliğini etkilemektedir. 
+
+# IDOR Nasıl Bulunabilir?
+
