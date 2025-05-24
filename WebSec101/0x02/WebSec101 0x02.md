@@ -89,6 +89,19 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
 * **'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliğini'** olarak türkçeleştiriliyor. Genelde **IDOR(Veriye Yetkisiz Erişim)** ile karıştırılır.
 
-* Burp Suite'den Intruder(Saldırganı ifade ediyor) kısmına geliniyor ve ilk satırdaki 'delete' fonksiyonu işaretleniyor. Buradaki amaç veri tabanında daha ne kadar benzer fonksiyonların olduğunu eğer varsa öğrenmek:
+* Burp Suite'den Intruder(Saldırganı ifade ediyor) kısmına geliniyor ve ilk satırdaki **'invalidmethodname'(bu rastgele bir isim çünkü zaten fonksiyon ismi sorgusu yapacağız yani fonksiyon ismine ne yazacağımız önemli değil)** fonksiyonu işaretleniyor. Buradaki amaç veri tabanında daha ne kadar fonksiyon olup olmadığını öğrenmek:
 
-    ![alt text](image-12.png)
+    ![alt text](image-16.png)
+
+* Sonra **Payloads** kısmına geliniyor ve **Payload Options** kısmından **Add from list...** basılıyor ve oradan **Form Field Names** butonuna tıklanıyor. Burada aslında ***'adress/invalidmethodname'*** sorgusu yapılan veritabanında ***'invalidmethodname'*** fonksiyonu gibi başka hangi fonksiyonlar var o bulunmaya çalışıyor. Bulmak için de isimlere ihtiyaç var ve bu isimler de liste halinde burada sıralanmış. Kolaylık olsun diye onları bir arada aratıyor ve işimizi hızlandırıyor: 
+
+    ![alt text](image-13.png)
+
+* Görüldüğü üzere isim listesi geldi. Devam ediliyor ve **Positions** kısmına gelinip **Start Attack** tuşuna basılıyor:
+
+    ![alt text](image-14.png)
+
+* Şimdi ise ekrana sorgusu yapılan bu isimler geldi:
+
+    ![alt text](image-15.png)
+
