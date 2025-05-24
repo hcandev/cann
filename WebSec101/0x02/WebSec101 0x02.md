@@ -80,5 +80,8 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
     ![alt text](image-11.png)
 
 
+* Buradan uygulamanın davranışından veritabanında nasıl çalıştığına dair izler görebiliriz. Şu ana kadar uygulamanın adres kimliklerinin varlığı üzerinden bir çıktı ürettiğini gördük. 12 ve 15 var olan adresler olduğu için error mesajı üretmedi. Ancak çok absürt bir sayı girdiğimizde öyle bir adres muhtemelen olmadığı için **'404 Not Found'** hatası aldık. Buradan tersine mühendislik yapar arkaplandaki çalışma mantığına yönelik varsayımlarda bulunabiliyoruz. 
 
+
+* Sonuç olarak bu web uygulamasında **IDOR** zaafiyetinden bahsedemeyiz. Çünkü bir kullanıcının hesabından başka bir kullanıcının adresini silmek başarılamıyor. Eğer silinebilseydi IDOR'dan bahsedebilirdik. 
 
