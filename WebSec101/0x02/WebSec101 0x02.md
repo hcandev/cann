@@ -17,6 +17,14 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 * Bu uygulamalı anlatımda zaafiyetli tasarlanmış bir web uygulaması üzerinden anlatım gerçekleştireceğiz.
 
 * Çalışırken **Burp Suite** isimli bir araç kullanacağız.
-    * Burp Suite'i bir hacker kumandası olarak düşünebiliriz. Tasarlanma amacı web uygulama güvenliği ile ilgili işlemleri daha hızlı ve verimli şekilde gerçekleştirmek üzere geliştirilmiştir. 
+    * Burp Suite'i bir hacker kumandası olarak düşünebiliriz. Web uygulama güvenliği ile ilgili işlemleri daha hızlı ve verimli şekilde gerçekleştirmek üzere geliştirilmiştir. 
 
+* Örnek web uygulaması:
+    **İlk Hesap**
+    ![alt text](image.png)
 
+* Burada görüldüğü üzere web uygulamasına giriş yapılmış ve adresler kısmındayız. 
+
+* Aynı uygulama farklı bir tarayıcıdan farklı bir hesapla da yan tarafta açılıyor:
+    **İkinci Hesap**
+    ![alt text](image-1.png)
