@@ -113,5 +113,11 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
     * Bu zaafiyette, ***edit*** isimli bir fonksiyonun bana yani kullanıcıya sunulmadığı halde erişebilmem söz konusudur. Bu zaafiyetin adı ise ***'Missing Function Level Access'*** ya da diğer adıyla ***'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliği'***dir.
 
+    * Devam edip **'address/edit/15'** yerine id değiştirip **'address/edit/5'** yazdığımızda başka kullanıcının verisine gidebiliyor ve onun verisine de ulaşabiliyoruz:
+
+    ![alt text](image-19.png)
+
+
+    * Dolayısıyla sonuçta iki türlü zaafiyet görüyoruz. Birincisi ***MFLA*** çünkü yetki verilmediği halde fonksiyona erişip kullanabiliyoruz. İkinci ise ***IDOR*** çünkü başka kullanıcının verisini görebiliyoruz. Temel fark bu.
 
 
