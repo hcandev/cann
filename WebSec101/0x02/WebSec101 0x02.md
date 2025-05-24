@@ -62,6 +62,22 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
             ![alt text](image-7.png)
 
+            * **'Authorization failure(yetkilendirme başarısız)'** geri dönüşünü alıyoruz. Ancak bunun yazıyor oluşu bu siteden veri sızdırılamayacağı anlamına gelmiyor. 
+    
+
+* Tekrardan 1. kullanıcının adres bilgilerine gittiğimizde ise adresin silinmediğini görebiliyoruz:
+
+    ![alt text](image-8.png)
+
+
+* Şimdi id olarak çok uzun bi sayı yazılıyor ve sunucunun ne tepki vereceği ölçülüyor:
+
+    ![alt text](image-9.png)
+
+
+* Bu sefer gelen yanıt **'404 Not Found'** oluyor. Bu bir hata mesajıdır.
+
+    ![alt text](image-10.png)
 
 
 
