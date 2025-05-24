@@ -6,4 +6,4 @@ Bir web uygulaması kullanıcıdan girdiler alarak çalışır. Yani bizler web 
 
 # IDOR (Insecure Direct Object Reference)
 
-### IDOR NE DEMEK
+## IDOR NE DEMEK
