@@ -87,5 +87,8 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
 # Missing Function Level Access
 
-* **'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliğini'** olarak türkçeleştiriliyor. Genelde IDOR ile karıştırılır.
+* **'Fonksiyon Seviyesinde Yetki Kontrolü Eksikliğini'** olarak türkçeleştiriliyor. Genelde **IDOR(Veriye Yetkisiz Erişim)** ile karıştırılır.
 
+* Burp Suite'den Intruder(Saldırganı ifade ediyor) kısmına geliniyor ve ilk satırdaki 'delete' fonksiyonu işaretleniyor. Buradaki amaç veri tabanında daha ne kadar benzer fonksiyonların olduğunu eğer varsa öğrenmek:
+
+    ![alt text](image-12.png)
