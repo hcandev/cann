@@ -28,3 +28,6 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 * Aynı uygulama farklı bir tarayıcıdan farklı bir hesapla da yan tarafta açılıyor:
     **İkinci Hesap**
     ![alt text](image-1.png)
+
+* İlk hesaba bir adres ekleniyor MDI-1 Adresi adında:
+    ![alt text](image-2.png)
