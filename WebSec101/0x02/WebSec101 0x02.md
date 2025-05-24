@@ -121,3 +121,8 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
     * Dolayısıyla sonuçta iki türlü zaafiyet görüyoruz. Birincisi ***MFLA*** çünkü yetki verilmediği halde fonksiyona erişip kullanabiliyoruz. İkinci ise ***IDOR*** çünkü başka kullanıcının verisini görebiliyoruz. Temel fark bu.
 
 
+# Web Uygulamasında Diğer Zaafiyetlerin Varlığına İlişkin Kontrol
+
+* Uygulamada bir ürün sepete ekleniyor ve sipariş veriliyor. Sipariş verildikten sonra sipariş bilgilerine erişebilen küçük bir pencere açılıyor:
+
+    ![alt text](image-20.png)
