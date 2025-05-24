@@ -34,3 +34,6 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
 * İkinci hesaba da bir adres ekleniyor. İsmi **'MDI-2 Adresi'**:
     ![alt text](image-3.png)
+
+* İlk hesaptaki adres web uygulamasından silindiği vakit **Burp Suite** uygulamasında şöyle bir çıktı alınıyor:
+    ![alt text](image-4.png)
