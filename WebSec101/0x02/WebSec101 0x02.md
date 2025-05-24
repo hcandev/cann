@@ -75,9 +75,9 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
     ![alt text](image-9.png)
 
 
-* Bu sefer gelen yanıt **'404 Not Found'** oluyor. Bu bir hata mesajıdır.
+* Bu sefer gelen yanıt **'404 Not Found'** hata mesajı oluyor.  
 
-    ![alt text](image-10.png)
+    ![alt text](image-11.png)
 
 
 
