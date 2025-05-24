@@ -97,9 +97,9 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 
     ![alt text](image-13.png)
 
-* Görüldüğü üzere isim listesi geldi. Devam ediliyor ve **Positions** kısmına gelinip **Start Attack** tuşuna basılıyor:
+* Görüldüğü üzere isim listesi geldi. Devam ediliyor ve **Positions** kısmına gelinip **Start Attack(sağ üstte gözüküyor)** tuşuna basılıyor:
 
-    ![alt text](image-14.png)
+    ![alt text](image-17.png)
 
 * Şimdi ise ekrana sorgusu yapılan bu isimler geldi:
 
