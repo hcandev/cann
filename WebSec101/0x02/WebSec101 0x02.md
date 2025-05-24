@@ -126,3 +126,11 @@ Yukarıdaki yazıda web uygulamasının veri tabanı ile kullanıcı arasındaki
 * Uygulamada bir ürün sepete ekleniyor ve sipariş veriliyor. Sipariş verildikten sonra sipariş bilgilerine erişebilen küçük bir pencere açılıyor:
 
     ![alt text](image-20.png)
+
+* Burada satın alma işlemi yapan kullanıcının adres bilgisi mevcut.
+
+    ![alt text](image-21.png)
+
+* Burp Suite'de buradaki yapılan satın alma sorgusunu görüyoruz. Satın alan kullanıcının adres id'si 17 olarak gözüküyor. Şimdi soru şu, biz bu id'yi değiştirsek ve satın alan 17 adresine sahip olan kullanıcı olduğu halde adres olarak girdiğimiz id işlense ve ürün ona gitse, bu mümkün mü? Basitleştirirsem, ben kalem sipariş verdim ama satın alan ben olduğum halde ürün başkasına gitti bu veri sızdırma yüzünden. 
+
+* 
