@@ -6,14 +6,14 @@ Günümüzde internetin çalışmasında en büyük role sahiptir. Http'yi bir m
 
 # TCP 3-Way Handshake
 
-## TCP (Transmission Control Protocol)/IP Model Nedir?
+## TCP (Transmission Control Protocol)/IP Nedir?
 
 TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrılmasını ve karşı tarafta bu paketlerin yeniden düzgün bir şekilde birleştirilmesini sağlar. Bu şekilde kayıpsız veri gönderimi amaçlanır. Bu protokolün 4 katmanı bulunur. Bu katmanlarda, ağ erişimine sahip cihazlarda çalışan uygulamaların birbiriyle nasıl iletişim kurdukları ve kuracakları tanımlanır.
 
 * ![alt text](image-10.png)
 
     * Application (Uygulama): Veriyi oluşturan katman. (HTTP/HTTPS)
-    
+
     * Transport (Taşıma): Hatasız bir veri bağlantısı kurulan ortam. Veriyi küçük paketlere böler.
 
     * Network (Ağ): Veriyi doğru ağa yönlendirir. Paketleri ağa gönderir ve paketlerin gönderildiğinden emin olur.(Ipv4/Ipv6)
@@ -25,10 +25,9 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
         *    ![alt text](image-11.png)
 
 
-### OSI:
+## OSI(Open System Interconnection) Nedir?
 
-
- OSI(Open System Interconnection), açık sistemler arasındaki bağlantılar olarak düşünülebilir. OSI bir yukarıda anlattığımız TCP gibi bir protokoldür ve 7 katmandan oluşur.
+ OSI, açık sistemler arasındaki bağlantılar olarak düşünülebilir. OSI yukarıda anlattığımız TCP gibi bir protokoldür ve 7 katmandan oluşur. Bu katmanlarla, ağ farkındalığına sahip cihazlarda çalışan uygulamaların birbirleriyle nasıl iletişim kuracakları tanımlanır.
 
 
 * ![alt text](image.png)
@@ -67,3 +66,6 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
 *    ![alt text](image-3.png)
 
 
+## TCP 3-Way Handshake(3 yönlü el sıkışma)
+
+TCP/IP ağı üzerinden iki cihaz arasında güvenilir bağlantı kuran bir süreçtir. 3 adımdan oluştuğu için 3 yönlü el sıkışma adı almıştır. Amaç bu 3 adımda doğrulama yapmaktır. Örneğin; 
