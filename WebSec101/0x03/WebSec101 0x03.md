@@ -13,31 +13,22 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
 * ![alt text](image-10.png)
 
     * Application (Uygulama): Veriyi oluşturan katman. (HTTP/HTTPS)
+    
     * Transport (Taşıma): Hatasız bir veri bağlantısı kurulan ortam. Veriyi küçük paketlere böler.
+
     * Network (Ağ): Veriyi doğru ağa yönlendirir. Paketleri ağa gönderir ve paketlerin gönderildiğinden emin olur.(Ipv4/Ipv6)
+
     * Network Access: Hedef MAC Adresini ekler. İnternetteki uygulamalar arasında veri gönderimi yapar. Fiziksel altyapıyı işler.
+
         * MAC(Media Access Control Address), medya erişimi kontrol adresi olarak düşünülebilir. Cihazın üreticileri tarafından atanan adreslerdir. Örnek, “68-7F-74-12-34-56” bu dizin bir MAC adresi örneğidir. Adresin ilk altı hanesi üreticiyi temsil eder, son altı hane ise özgün bir tanıtıcı numaradır.  Bilgisayar ağında bir cihazın ağ donanımını tanımaya yarar:
 
         *    ![alt text](image-11.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### OSI:
 
 
- OSI(Open System Interconnection), açık sistemler arasındaki bağlantılar olarak düşünülebilir. OSI bir protokoldür ve 7 katmandan oluşur.
+ OSI(Open System Interconnection), açık sistemler arasındaki bağlantılar olarak düşünülebilir. OSI bir yukarıda anlattığımız TCP gibi bir protokoldür ve 7 katmandan oluşur.
 
 
 * ![alt text](image.png)
@@ -73,6 +64,6 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
 ^
 ### OSI ve TCP/IP karşılaştırması:
 
-    ![alt text](image-3.png)
+*    ![alt text](image-3.png)
 
 
