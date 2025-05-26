@@ -2,7 +2,10 @@
 
 # HTTP (Hypertext Transfer Protocol) 
 
-Günümüzde internetin çalışmasında en büyük role sahiptir. Http'yi bir metin aktarım protokolü(çeşitli kurallar bütünü) olarak düşünebiliriz. İlk başta bazı üniversiteler arasındaki veri transferleri gibi basit ihtiyaçlar için kullanılıyordu. Dolayısıyla şu anda karmaşık bir uygulamanın sahip olması gereken iyi bir güvenlik yapısı taşımadığını söyleyebiliriz. Her zaman kullanıcının sorgusu karşısında sunucudan bir cevap gelir. Yani buradaki veri sadece iki taraflıdır. Sunucu ve kullanıcı arasındadır. 
+Günümüzde internetin çalışmasında en büyük role sahiptir. Http'yi bir metin aktarım protokolü(çeşitli kurallar bütünü) olarak düşünebiliriz. Bilginin sunucudan kullanıcıya nasıl ve ne şekilde aktarılacağını gösteren protokoldür. Web sayfalarının görüntülenmesini sağlar. İlk başta bazı üniversiteler arasındaki veri transferleri gibi basit ihtiyaçlar için kullanılıyordu. Dolayısıyla şu anda karmaşık bir uygulamanın sahip olması gereken iyi bir güvenlik yapısını taşımadığını söyleyebiliriz. Her zaman kullanıcının sorgusu karşısında sunucudan bir cevap gelir. Yani buradaki veri sadece iki taraflıdır. Sunucu ve kullanıcı arasındadır.
+
+## HTTPS(Secure Hyper Text Transfer Protocol) 
+Aynı http gibi bir protokoldür. Güvenli Metin Aktarma Protokolü olarak düşünebiliriz. HTTP ve HTTPS temelde aynı işi yapsa da HTTPS'de güvenlik ön plandadır. Sondaki 's' takısını secure(güvenli) olarak düşünebiliriz. Kısacası internet sitelerinin metinlerle kurduğu bağlantı sertifikalar aracılığıyla şifrelenmektedir. 
 
 # TCP 3-Way Handshake
 
@@ -77,4 +80,19 @@ TCP/IP ağı üzerinden iki cihaz arasında güvenilir bağlantı kuran bir sür
 
 ***A kişisi: Seninle konuşmak istediğimi söylemiştim sen de bunu duymuşsun ve müsait olduğunu söylemişsin. Hadi konuşalım.***
 
-Görüldüğü üzere 3 taraflı bir doğrulama söz konusu. TCP 3-Way Handshake en basit haliyle budur.
+Görüldüğü üzere 3 taraflı bir doğrulama söz konusu. TCP 3-Way Handshake en basit haliyle budur ve doğrulama ile ilgilidir.
+
+
+## HTTP ve Authentication(doğrulama)
+
+* Http'nin yapısında doğrulama desteği yoktur. Bu yüzden doğrulama sistemi cookie(çerezler)'ler ile çalışır.
+* Http head ve body kısımlarından oluşur. Önemli bilgilerin head bölümünde geri kalan verilerin ise body kısımlarında olduğunu düşünebiliriz. Head ve body kısımlarının işleyişlerini insan vücudundaki kafa ve vücut ile aynı kefeye koyabiliriz.  
+
+```
+1. Request
+POST /login HTTP/1.1
+Host: mdisec.com
+
+username=mehmet&password=twitch
+
+```
