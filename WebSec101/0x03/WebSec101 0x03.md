@@ -68,4 +68,13 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
 
 ## TCP 3-Way Handshake(3 yönlü el sıkışma)
 
-TCP/IP ağı üzerinden iki cihaz arasında güvenilir bağlantı kuran bir süreçtir. 3 adımdan oluştuğu için 3 yönlü el sıkışma adı almıştır. Amaç bu 3 adımda doğrulama yapmaktır. Örneğin; 
+TCP/IP ağı üzerinden iki cihaz arasında güvenilir bağlantı kuran bir süreçtir. 3 adımdan oluştuğu için 3 yönlü el sıkışma adı almıştır. Amaç bu 3 adımda doğrulama yapmaktır. Doğrulamaya bir örnek:
+
+
+***-A kişisi: Merhaba ben seninle konuşmak istiyorum***
+
+***-B kişisi: Merhaba benimle konuşmak istediğini duydum. Seninle konuşmaya müsaitim***
+
+***-A kişisi: Seninle konuşmak istediğimi söylemiştim sen de bunu duymuşsun ve müsait olduğunu söylemişsin. Hadi konuşalım. ***
+
+Görüldüğü üzere 3 taraflı bir doğrulama söz konusu. TCP 3-Way Handshake en basit haliyle budur.
