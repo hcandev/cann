@@ -86,13 +86,28 @@ Görüldüğü üzere 3 taraflı bir doğrulama söz konusu. TCP 3-Way Handshake
 ## HTTP ve Authentication(doğrulama)
 
 * Http'nin yapısında doğrulama desteği yoktur. Bu yüzden doğrulama sistemi cookie(çerezler)'ler ile çalışır.
-* Http head ve body kısımlarından oluşur. Önemli bilgilerin head bölümünde geri kalan verilerin ise body kısımlarında olduğunu düşünebiliriz. Head ve body kısımlarının işleyişlerini insan vücudundaki kafa ve vücut ile aynı kefeye koyabiliriz.  
+* Http head ve body kısımlarından oluşur. Önemli bilgilerin head bölümünde(örneğin cookie'ler buradadır.) geri kalan verilerin ise body kısımlarında olduğunu düşünebiliriz. Head ve body kısımlarının işleyişlerini insan vücudundaki kafa ve vücut ile aynı kefeye koyabiliriz.  
 
 ```
-1. Request
-POST /login HTTP/1.1
+1. Request(sorgu) --> örnek bir web aresine isim ve şifremizi girdiğimizi düşünelim ve bu da http'de gözükmesi muhtemel kod.
+POST /login HTTP/1.1 --> burada bir login(giriş) sorgusu yapılıyor.
 Host: mdisec.com
 
 username=mehmet&password=twitch
+
+
+Response(sunucudan gelen cevap) 
+HTTP 302 OK --> sorgu gerçekleştikten sonraki server(sunucu) tarafından gelen bir onay kodu olarak düşünebiliriz. 
+Location: mdisec.com/dashboard
+Set-Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989 --> ve bir cookie(çerez) oluşturdu. İşte bu çerez browser(internet tarayıcı)'ın veri tabanına kaydedilir. cookiler header kısmındadır
+
+
+2. Request
+GET /dashboard HTTP/1.1 --> site ile etkileşime geçiliyor ve bir sorgu yapılıyor. Muhtemelen sitenin gösterge paneline gidilmeye çalışılıyor.
+Host:mdisec
+Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989 
+
+
+Böylelikle giriş yaptığımız vakit diğer işlemleri yaparken bizim zaten giriş yaptığımız sunucu tarafından hatırlanır. Örneğin bir sosyal medya sitesine giriş yaptık ve giriş yaptıktan sonra beğeni atmak istedik. Bunu yapabilme sebebimiz aslında bizim giriş yaptığımız verilerin cookie olarak kaydedilmesidir. Aksi takdirde giriş yaptıktan sonraki siteyle olan her etkileşimimizde tekrar giriş yapmamız gerekirdi. 
 
 ```
