@@ -99,15 +99,15 @@ username=mehmet&password=twitch
 Response(sunucudan gelen cevap) 
 HTTP 302 OK --> sorgu gerçekleştikten sonraki server(sunucu) tarafından gelen bir onay kodu olarak düşünebiliriz. 
 Location: mdisec.com/dashboard
-Set-Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989 --> ve bir cookie(çerez) oluşturdu. İşte bu çerez browser(internet tarayıcı)'ın veri tabanına kaydedilir. cookiler header kısmındadır
+Set-Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989 --> ve bir cookie(çerez) oluşturuldu.
 
 
 2. Request
-GET /dashboard HTTP/1.1 --> site ile etkileşime geçiliyor ve bir sorgu yapılıyor. Muhtemelen sitenin gösterge paneline gidilmeye çalışılıyor.
+GET /dashboard HTTP/1.1 --> site ile etkileşime geçiliyor ve bir sorgu yapılıyor.  
 Host:mdisec
 Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989 
 
 
-Böylelikle giriş yaptığımız vakit diğer işlemleri yaparken bizim zaten giriş yaptığımız sunucu tarafından hatırlanır. Örneğin bir sosyal medya sitesine giriş yaptık ve giriş yaptıktan sonra beğeni atmak istedik. Bunu yapabilme sebebimiz aslında bizim giriş yaptığımız verilerin cookie olarak kaydedilmesidir. Aksi takdirde giriş yaptıktan sonraki siteyle olan her etkileşimimizde tekrar giriş yapmamız gerekirdi. 
-
 ```
+
+* 1.request ile aslında giriş yapılıyor. Bu veri sunucuya gidiyor ve sunucuda bu giriş yapan browser'a(internet tarayıcısı) bir çerez atanıyor. Sonrasında ise 2.request ile aslında giriş yapan kişi site ile etkileşime geçiyor. Böylelikle giriş yaptığımız vakit diğer işlemleri yaparken bizim zaten giriş yaptığımız sunucu tarafından hatırlanıyor. Örneğin bir sosyal medya sitesine giriş yaptık ve giriş yaptıktan sonra beğeni atmak istedik. Bunu yapabilme sebebimiz aslında bizim giriş yaptığımız verilerin cookie olarak browser'a kaydedilmesidir. Aksi takdirde giriş yaptıktan sonraki siteyle olan her etkileşimimizde tekrar giriş yapmamız gerekirdi. 
