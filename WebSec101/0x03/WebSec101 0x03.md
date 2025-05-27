@@ -156,7 +156,7 @@ Sosyal medya hesabınıza giriş yaptığınızı düşünün. O giriş bilgiler
 * İki tane web sekmesinin açık olduğunu düşünelim: 
 
     * Bazı kavramlar:
-        '<img src></img>': web uygulamasındaki görüntünün url adresini belirtir. Tarayıcı sayfayı yüklerken sunucuya bağlanır ve <img src>'temsili resmin url adresi'</img> içindeki resmi sayfaya aktarır.
+        **img src**: web uygulamasındaki görüntünün url adresini belirtir. Tarayıcı sayfayı yüklerken sunucuya bağlanır ve ***img src*** içindeki resmi sayfaya aktarır.
 
 ```
 1. TAB --> ilk sekme
