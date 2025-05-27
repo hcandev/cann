@@ -13,7 +13,7 @@ Aynı http gibi bir protokoldür. Güvenli Metin Aktarma Protokolü olarak düş
 
 TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrılmasını ve karşı tarafta bu paketlerin yeniden düzgün bir şekilde birleştirilmesini sağlar. Bu şekilde kayıpsız veri gönderimi amaçlanır. Bu protokolün 4 katmanı bulunur. Bu katmanlarda, ağ erişimine sahip cihazlarda çalışan uygulamaların birbiriyle nasıl iletişim kurdukları ve kuracakları tanımlanır.
 
-* ![alt text](image-10.png)
+* ![alt text](<WebSec101 0x03_ss/image-10.png>)
 
     * Application (Uygulama): Veriyi oluşturan katman. (HTTP/HTTPS)
 
@@ -25,7 +25,7 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
 
         * MAC(Media Access Control Address), medya erişimi kontrol adresi olarak düşünülebilir. Cihazın üreticileri tarafından atanan adreslerdir. Örnek, “68-7F-74-12-34-56” bu dizin bir MAC adresi örneğidir. Adresin ilk altı hanesi üreticiyi temsil eder, son altı hane ise özgün bir tanıtıcı numaradır.  Bilgisayar ağında bir cihazın ağ donanımını tanımaya yarar:
 
-        *    ![alt text](image-11.png)
+        *    ![alt text](<WebSec101 0x03_ss/image-11.png>)
 
 
 ## OSI(Open System Interconnection) Nedir?
@@ -33,40 +33,40 @@ TCP, aktarım kontrol protokolüdür. Verinin iletiminden önce paketlere ayrıl
  OSI, açık sistemler arasındaki bağlantılar olarak düşünülebilir. OSI yukarıda anlattığımız TCP gibi bir protokoldür ve 7 katmandan oluşur. Bu katmanlarla, ağ farkındalığına sahip cihazlarda çalışan uygulamaların birbirleriyle nasıl iletişim kuracakları tanımlanır.
 
 
-* ![alt text](image.png)
+* ![alt text](<WebSec101 0x03_ss/image.png>)
 
     * Application(Uygulama): Kullanıcıya en yakın katmandır. Burada uygulama servisleri sağlanmaktadır. HTTP bu katmandadır.
 
-        ![alt text](image-8.png)
+        ![alt text](<WebSec101 0x03_ss/image-8.png>)
 
     * Presentation(Sunum): Kullanılabilir veriyi şifreler ya da sıkıştırır. WMV, JPEG, PNG bu katmandadır.
 
-        ![alt text](image-7.png)
+        ![alt text](<WebSec101 0x03_ss/image-7.png>)
 
     * Session(Oturum): Oturumların kurulduğu, yönetildiği ve sonlandırıldığı kısım.
 
-        ![alt text](image-6.png)
+        ![alt text](<WebSec101 0x03_ss/image-6.png>)
 
     * Transport(Taşıma): Taşıma protokolleri(TCP&UDP) kullanarak verileri taşır.
         
-        ![alt text](image-4.png)
+        ![alt text](<WebSec101 0x03_ss/image-4.png>)
 
     * Network(Ağ): Global(evrensel, herkes tarafından erişilebilir) adresleri arayüzlere taşır ve farklı ağlar arasındaki en iyi rotayı belirler. IP bu katmandadır.
 
-        ![alt text](image-2.png)
+        ![alt text](<WebSec101 0x03_ss/image-2.png>)
 
     * Data Link(Data Link): Local(yerel, kısıtlı erişim) adresleri arayüzlere taşır. Bilgiyi local olarak taşır.(Mac Method)
 
-        ![alt text](image-1.png)
+        ![alt text](<WebSec101 0x03_ss/image-1.png>)
 
     * Physical(Fiziksel): Sinyalleri, kabloları ve bağlayıcıları(örn, ethernet kablosunun en uç kısmı) şifreler. 
 
-        ![alt text](image-9.png)
+        ![alt text](<WebSec101 0x03_ss/image-9.png>)
 
 ^
 ### OSI ve TCP/IP karşılaştırması:
 
-*    ![alt text](image-3.png)
+*    ![alt text](<WebSec101 0x03_ss/image-3.png>)
 
 
 ## TCP 3-Way Handshake(3 yönlü el sıkışma)
@@ -143,13 +143,13 @@ Sosyal medya hesabınıza giriş yaptığınızı düşünün. O giriş bilgiler
 
     * Bir önceki derste bir web uygulaması üzerinden gitmiştik, şimdi yine onu göreceğiz.
 
-        ![alt text](image-12.png)
+        ![alt text](<WebSec101 0x03_ss/image-12.png>)
 
         * Burada görüldüğü üzere hesaba giriş yapılmış ve adresler kısmında bir adres var.
 
         * Şimdi onu delete ediyor ve BurpSuite'den delete requestini yakalıyor:
 
-            ![alt text](image-13.png)
+            ![alt text](<WebSec101 0x03_ss/image-13.png>)
 
 * Şimdi yukarıdaki adımlardan yorumlayalım. Bir kullanıcı var ve silme sorgusunu sunucuya gönderiyor. Burada sunucunun kullanıcının bu requestinin isteyerek mi gönderdiğinden emin olması gerekir. Yani yine doğrulama söz konusu. Eğer client'tın(kullanıcı) requestinden emin olmaz ise CSRF zaafiyeti olur:
 
@@ -182,17 +182,17 @@ Kullanıcı bir web uygulamasında request ürettiği zaman web uygulaması kull
 
 Web uygulamasına geri dönelim:
 
-![alt text](image-15.png)
+![alt text](<WebSec101 0x03_ss/image-15.png>)
 
 Yukarıda adres ekleme kısmından adres ekleniyor.
 
-![alt text](image-16.png)
+![alt text](<WebSec101 0x03_ss/image-16.png>)
 
 Adres ekleme requesti BurpSuite'den yakalandığında böyle bir ekranla karşılaşıyoruz. En sonda dikkat ederseniz bir **token(jeton anlamındadır ancak bir çeşit anahtar veya şifre olarak kullanılan jeton gibi düşünmek gerekir)** var.
 
 Devam ediliyor ve web uygulamasının kodu inceleniyor:
 
-![alt text](image-17.png)
+![alt text](<WebSec101 0x03_ss/image-17.png>)
 
 Burada web uygulamasının formu üretirken gizli bir token oluşturduğu ve bunu gizli bir değer olarak koyduğu görülüyor. Çünkü web uygulamasının arayüzünde görünür değildi ancak BurpSuite'de görebilmiştik. **Bu token değer kullanıcının session'ı ile ilişkilidir.** Çünkü bu token bu kullanıcıya ve dolayısıyla onun bu sessionına özeldir. Dolayısıyla çerezler ile ya da session ile bir eşleşme söz konusu olacaksa bu eşleşme yalnızca bu token değeri ile eşitlendiğinde gerçekleşebilir. Yani web uygulaması aslında kullanıcının requestini bilerek yapıp yapmadığını bu token sayesinde anlamaktadır. Web uygulaması içerisinde ise çalışacak ancak başka web uygulamaları bu requestten etkilenmeyecek çünkü buradaki token ile başka web uygulamalarındaki uyuşmayacak. Yani bu web uygulaması ile ilgili bir şey.
 
