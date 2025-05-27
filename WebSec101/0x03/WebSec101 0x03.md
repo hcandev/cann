@@ -202,3 +202,7 @@ Sonuçta web uygulaması form arayüzüne kullanıcıya özel bir token üretip 
 ## SameSite Cookie
 
 Yukarıda CSRF zaafiyeti web uygulamasında token ile engelleniyordu. SameSite Cookie ise bu işi browser'da yapıyor. SameSite Cookie browser'a bir kural tanımlamaktadır. Bu kurala göre siteler arası isteklerle birlikte bir çerezin gönderilip gönderilmeyeceğini kontrol eder. Örneğin facebook.com'a girdik ve yanda da hacker.com sitesi var. Hacker.com sitesi facebook sitesine request göndermek isteyecektir ancak facebok'da SameSite Cookie olduğu için bu requesti reddeder. Yani gelen requestin facebook.com'dan mı yoksa başka bir siteden mi geldiğini anlama kabiliyetine sahiptir. Dolayısıyla bir hacker browser'ı kullanarak CSRF zaafiyetini kullanamaz hale gelir. 
+
+# KAYNAK
+
+[Web Security 101 0x03 | Session’ı ve CSRF Zafiyetini Anlamak & SameSite Cookie Önlemi](https://www.youtube.com/watch?v=CKHai0OW6BY)
