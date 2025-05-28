@@ -1,5 +1,6 @@
 <h1 align="center">Biraz Portswigger Alıştırmaları</h1>
 
+# İLK ALIŞTIRMA
 
 * Burpsuite kullanarak https://portswigger.net/ üzerinden birkaç alıştırma yapacağız.
 
@@ -53,3 +54,47 @@
 
 
 * Böylece bir alıştırmayı çözmüş olduk. Görüldüğü üzere bize verilen hesap üzerinden giriş yaptık ve bu giriş bilgisinin sunucuya gönderdiği sorguyu Burpsuit ile yakaladık. Sonra buradaki bir girdiyi değiştirerek sunucuya başka bir sorgu yolladık. Bu sorgu başka bir kullanıcının bilgisini içerdiğinden sunucudan bize gelen response'da o kullancıya ait veriler çıktı. Basit bir IDOR zaafiyetini uygulamalı olarak yapmış olduk.
+
+# İKİNCİ ALIŞTIRMA
+
+* Bu sefer https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references bu kısmı açalım.
+
+* Bu alıştırmada sunucunun dosya sisteminde kullanıcı sohbet kayıtlarının tutulduğundan bahsediyor. Carlos'un şifresini bulup hesabına giriş yapabilirsek alıştırmayı tamamlayacakmışız. Devam etmek için ***Access the Lab** tuşuna basalım. 
+
+![alt text](image-10.png)
+
+* Sağ üstten ***Live Chat*** kısmına tıklayıp bir mesaj yazıp send tuşuna basalım. Sonra da ***View Transcript*** tuşuna basalım. Bu ***'2.txt'*** isimli bir dosya indirecek. Şimdi Burpsuite geçelim;
+
+![alt text](image-11.png)
+
+* ***Proxy*** sekmesinden ***HTTP History*** sekmesine gelip biraz aşağı gelip indirme işlemi yapılan dosyayı bulalım;
+
+![alt text](image-12.png)
+
+* Buradan sol aşağıdaki ***Request*** penceresine sağ tıklayıp ***Send to Repeater*** tuşuna basalım ve kod ***Repeater*** sekmesine gitsin;
+
+![alt text](image-13.png)
+
+* Yukarıdan Repeater sekmesine gelelim ve gönderdiğimiz kod burada bizi bekliyor olacak. Burada send tuşuna bastığımızda yazdığımız mesajı ***response*** penceresinde görebiliyoruz;
+
+![alt text](image-14.png)
+
+* Şimdi ***Request*** penceresinde ***GET /download-transcript/2.txt HTTP/2*** yazan yerdeki ***2.txt*** ifadesini ***1.txt*** olarak değiştirelim ve tekrar ***Send*** tuşuna basalım;
+
+![alt text](image-16.png)
+
+* ***Response*** kısmında carlos'un sohbet kayıtlarını görebiliyoruz. Burada bir şifre de verilmiş. Kopyalayalım.
+
+* Siteye geri dönüp sağ üstte ***My Account*** kısmına tıklayalım ve giriş ismine ***carlos***, şifreye de kopyaladığımız ***16nyqyiw7o0lgilleryo*** şifreyi yazalım ve giriş yapalım.
+
+![alt text](image-17.png)
+
+* Böylece bu alıştırmayı da yapmış olduk. 
+
+
+* Bu sefer sohbet kayıtlarındaki verilere sızıp onları kullandık. Bunu yapmak için de önce bizim bir mesaj yazması gerekti. Sonra bu mesajı sorgu olarak sunucuya giderken Burpsuite üzerinden yakaladık ve kodu burada tekrar çalıştırıp işlevini gördük. Kendi yazdığımız mesajı da görünce tek yapmamız gereken bu sorguyu biraz değiştirmek oldu. Hatırlarsak sohbetimizin transkriptini indirmiştik. Bunun adı da ***2.txt*** idi. Onun ismini değiştirip requesti tekrar çalıştırdığımızda aslında başka bir kullanıcının transkriptine ulaşmış olduk. Böylece o kullanıcının mesajlarını görebilir olduk ve verilere ulaştık. 
+
+
+# KAYNAK
+[ Web Security 101 0x05 - HackerConf.Stream! Goygoy ve Akabinde Web Security Academy
+](https://www.youtube.com/watch?v=iYPqOWJR1nY&list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT&index=5)
