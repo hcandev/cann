@@ -1,6 +1,6 @@
 <h1 align="center">Biraz Portswigger Alıştırmaları</h1>
 
-# İLK ALIŞTIRMA
+# İLK ALIŞTIRMA 
 
 * Burpsuite kullanarak https://portswigger.net/ üzerinden birkaç alıştırma yapacağız.
 
