@@ -12,7 +12,7 @@
 
 * Buradan ***'User ID controlled by request parameter with data leakage in redirect'*** testine tıklayalım; 
 
-![alt text](image.png)
+![alt text](<WebSec101 0x05_ss/image.png>)
 
 * Yukarıda bu testteki erişim kontrol zaafiyetinin varlığından söz ediliyor. Bu testi çözebilmemiz için ***carlos*** kullanıcısının API key'ini bulmamızı istiyor. Ancak bize bunu wiener'in hesabına girerek yapmamızı istiyor. ***Access the Lab*** kısmına tıklayıp devam edelim;
 
@@ -20,37 +20,36 @@
 
 * Giriş yaptıktan sonra BurpSuite uygulamasına gelelim ve **Proxy** sekmesi altındaki ***HTTP History*** sekmesine tıklayalım;
 
-![alt text](image-1.png)
+![alt text](<WebSec101 0x05_ss/image-1.png>)
 
 * Buradan biraz aşağı inip seçilmiş kısmı bulalım;
 
-![alt text](image-2.png)
+![alt text](<WebSec101 0x05_ss/image-2.png>)
 
 * Görüldüğü üzere burada weiner hesabındaki request ve response verilerini görebiliyoruz. Bize verilen görevde carlos'unkiler lazım.
 
-![alt text](image-3.png)
+![alt text](<WebSec101 0x05_ss/image-3.png>)
 
 * Bunu yapmak için sol alttaki ***Request*** adlı pencerede yazılan request kodunun tamamını seçip kopyalayalım;
 
-![alt text](image-4.png)
+![alt text](<WebSec101 0x05_ss/image-4.png>)
 
 * Bu sefer ***Proxy*** sekmesi yerine ***Repeater*** sekmesine gelip kopyaladığımız kodu ***Request*** penceresine yapıştıralım ve sonrasında ilk satırda yazan ***'GET /my-account?id=wiener HTTP/2'*** kısmında wiener yazan yere carlos yazalım;
-
-![alt text](image-5.png)
+![alt text](<WebSec101 0x05_ss/image-5.png>)
 
 * Ardından sol yukarıdaki ***Send*** tuşuna basalım ve çıkan küçük pencereye ok deyip tekrardan ***Send*** tuşuna basalım;
 
-![alt text](image-6.png)
+![alt text](<WebSec101 0x05_ss/image-6.png>)
 
 * Gördüğümüz gibi ***response*** kısmında artık carlos'a ait veriler var. Bu kısımdan biraz aşağı doğru inip ***carlos'a*** ait API anahtarını bulup kopyalayalım;
 
-![alt text](image-7.png)
+![alt text](<WebSec101 0x05_ss/image-7.png>)
 
 * Browser'a tekrar gelip submit solution kısmına tıkladıktan sonra kodu yapıştırıp Tamam tuşuna basalım.
 
-![alt text](image-8.png)
+![alt text](<WebSec101 0x05_ss/image-8.png>)
 
-![alt text](image-9.png)
+![alt text](<WebSec101 0x05_ss/image-9.png>)
 
 
 * Böylece bir alıştırmayı çözmüş olduk. Görüldüğü üzere bize verilen hesap üzerinden giriş yaptık ve bu giriş bilgisinin sunucuya gönderdiği sorguyu Burpsuit ile yakaladık. Sonra buradaki bir girdiyi değiştirerek sunucuya başka bir sorgu yolladık. Bu sorgu başka bir kullanıcının bilgisini içerdiğinden sunucudan bize gelen response'da o kullancıya ait veriler çıktı. Basit bir IDOR zaafiyetini uygulamalı olarak yapmış olduk.
@@ -61,33 +60,33 @@
 
 * Bu alıştırmada sunucunun dosya sisteminde kullanıcı sohbet kayıtlarının tutulduğundan bahsediyor. Carlos'un şifresini bulup hesabına giriş yapabilirsek alıştırmayı tamamlayacakmışız. Devam etmek için ***Access the Lab** tuşuna basalım. 
 
-![alt text](image-10.png)
+![alt text](<WebSec101 0x05_ss/image-10.png>)
 
 * Sağ üstten ***Live Chat*** kısmına tıklayıp bir mesaj yazıp send tuşuna basalım. Sonra da ***View Transcript*** tuşuna basalım. Bu ***'2.txt'*** isimli bir dosya indirecek. Şimdi Burpsuite geçelim;
 
-![alt text](image-11.png)
+![alt text](<WebSec101 0x05_ss/image-11.png>)
 
 * ***Proxy*** sekmesinden ***HTTP History*** sekmesine gelip biraz aşağı gelip indirme işlemi yapılan dosyayı bulalım;
 
-![alt text](image-12.png)
+![alt text](<WebSec101 0x05_ss/image-12.png>)
 
 * Buradan sol aşağıdaki ***Request*** penceresine sağ tıklayıp ***Send to Repeater*** tuşuna basalım ve kod ***Repeater*** sekmesine gitsin;
 
-![alt text](image-13.png)
+![alt text](<WebSec101 0x05_ss/image-13.png>)
 
 * Yukarıdan Repeater sekmesine gelelim ve gönderdiğimiz kod burada bizi bekliyor olacak. Burada send tuşuna bastığımızda yazdığımız mesajı ***response*** penceresinde görebiliyoruz;
 
-![alt text](image-14.png)
+![alt text](<WebSec101 0x05_ss/image-14.png>)
 
 * Şimdi ***Request*** penceresinde ***GET /download-transcript/2.txt HTTP/2*** yazan yerdeki ***2.txt*** ifadesini ***1.txt*** olarak değiştirelim ve tekrar ***Send*** tuşuna basalım;
 
-![alt text](image-16.png)
+![alt text](<WebSec101 0x05_ss/image-16.png>)
 
 * ***Response*** kısmında carlos'un sohbet kayıtlarını görebiliyoruz. Burada bir şifre de verilmiş. Kopyalayalım.
 
 * Siteye geri dönüp sağ üstte ***My Account*** kısmına tıklayalım ve giriş ismine ***carlos***, şifreye de kopyaladığımız ***16nyqyiw7o0lgilleryo*** şifreyi yazalım ve giriş yapalım.
 
-![alt text](image-17.png)
+![alt text](<WebSec101 0x05_ss/image-17.png>)
 
 * Böylece bu alıştırmayı da yapmış olduk. 
 
