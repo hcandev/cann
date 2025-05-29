@@ -2,7 +2,7 @@
 
 Modern web'in nasıl çalıştığına dair temel bir anlatımla başlayalım.
 
-İki bilgisayar ve bir modem düşünelim:
+İki bilgisayar ve bir modem düşünelim: 
 
 ![alt text](<WebSec101 0x04_ss/image.png>)
 
