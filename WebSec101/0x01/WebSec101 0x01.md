@@ -238,4 +238,4 @@
 ## Out-of-Band SQLi
 
 # KAYNAK
-[Web Security 101 0x01 | SQL Injection’ı Bütünüyle Anlamak](https://www.youtube.com/watch?v=WtHnT73NaaQ)
+[Web Security 101 0x01 | SQL Injection’ı Bütünüyle Anlamak](https://www.youtube.com/watch?v=WtHnT73NaaQ) 
