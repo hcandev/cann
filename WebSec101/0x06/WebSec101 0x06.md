@@ -83,13 +83,13 @@
 
 ![alt text](<WebSec101 0x06_ss/image-2.png>)
 
-* Giriş yaptıktan sonra admin paneline gelip BurpSuite'den Intercepti açalım ve ardından carlos'a yetki verelim;
+* Giriş yaptıktan sonra **admin paneline** gelip BurpSuite'den **Intercepti** açalım ve ardından **carlos'a** yetki verelim;
 
 ![alt text](<WebSec101 0x06_ss/image-22.png>)
 
-* Request kısmında yakalanan sorguyu görüyoruz. Bunu Repeater'a yollayalım ve intercepti kapatıp admin hesabından çıkış yapalım;
+* **Request** kısmında yakalanan sorguyu görüyoruz. Bunu **Repeater'a** yollayalım ve **intercepti** kapatıp **admin** hesabından çıkış yapalım;
 
-* Şimdi wiener hesabına girelim;
+* Şimdi **wiener** hesabına girelim;
 
 ![alt text](<WebSec101 0x06_ss/image-23.png>)
 
@@ -97,21 +97,21 @@
 
 ![alt text](<WebSec101 0x06_ss/image-24.png>)
 
-* Response kısmından cookie bilgisini kopyalayalım ve ardından Repeater kısmına gelelim;
+* Response kısmından **cookie** bilgisini kopyalayalım ve ardından **Repeater** kısmına gelelim;
 
 ![alt text](<WebSec101 0x06_ss/image-25.png>)
 
-* Burada cookie kısmını kopyaladığımız cookie ile değiştirelim ve Send tuşuna basalım;
+* Burada cookie kısmını kopyaladığımız cookie ile değiştirelim ve **Send** tuşuna basalım;
 
 ![alt text](<WebSec101 0x06_ss/image-26.png>)
 
-* 302 found verdi yani sorgu başarılı;
+* **302 found** verdi yani sorgu başarılı;
 
-* Şimdi aynı ekranda carlos yazan yere weiner yazalım;
+* Şimdi aynı ekranda **carlos** yazan yere **weiner** yazalım;
 
 ![alt text](<WebSec101 0x06_ss/image-27.png>)
 
-* Ardından Send tuşuna basalım ve alıştırmayı tamamlayalım;
+* Ardından **Send** tuşuna basalım ve alıştırmayı tamamlayalım;
 
 ![alt text](<WebSec101 0x06_ss/image-33.png>)
 
@@ -119,7 +119,48 @@
 
 * Burdada yine bi önceki alıştırmayla aynı metodu kullandık. Sorguyu admin paneli üzerinden başka kullancıya verdiğimiz yetkiyle yakaladık ve bu sorgudaki kullanıcı bilgilerini(cookie ve kullanıcı adı) istediğimiz kullanıcı için değiştirdik ve sonuçta alıştırmayı tamamlamış olduk.
 
+# Üçüncü Alıştırma
 
+* Sıradaki alıştırmamız https://portswigger.net/web-security/sql-injection/union-attacks/lab-find-column-containing-text linkinde.
+
+* Burada bir SQL Injection alıştırması var. Kategoriler kısmında SQL Injection olduğunu söylüyor bu yüzden biz de **Access the Lab** diyip kategorilerden bir tanesini seçelim;
+
+![alt text](<WebSec101 0x06_ss/imagee.png>)
+
+* Buraya girdikten sonra Burpsuite uygulamasına gelelim ve **Proxy-->Http History** History kısmından az önce yaptığımız sorguyu bulalım;
+
+![alt text](<WebSec101 0x06_ss/imagee-1.png>)
+
+* Burada **Request** kısmındaki kodu **Repeater**'a yollayalım;
+
+![alt text](<WebSec101 0x06_ss/imagee-2.png>)
+
+* **Repeater** kısmına gelelim;
+
+![alt text](<WebSec101 0x06_ss/imagee-3.png>)
+
+* Kodumuz burada ve şimdi **UNION SELECT** kullanarak SQL Injection yapacağız;
+
+* Burada Accessoriesin hemen yanına **'UNION+SELECT+null,null,null+--** kodunu yazalım ve send tuşuna basalım;
+
+    * Önceki derslerde **UNION** VE **SELECT** kullanmıştık, ama **null** kullanmamıştık. **Null** da injection yaparken kullanacağımız bir yineleme şekli. Önceki derslerde **null** yerine sayılar vardı ve onlar üzerinden sorgular yapıyorduk. Burada da **null** üzerinden de sorgulama yapabildiğimizi görmüş olduk.
+
+![alt text](<WebSec101 0x06_ss/imagee-5.png>)
+
+* Böyle bir **response** geldi ancak henüz alıştırma çözülmedi.
+
+* Uygulamada **Proxy-->HTTP History** kısmından sorgusunu aldığımız kodun responsuna baktığımızda şöyle bir stringi SQL Injection ile döndürmemiz gerektiği yazıyor;
+
+![alt text](<WebSec101 0x06_ss/imagee-8.png>)
+
+* Yani bizim yazdığımız kod ile birlikte 'LiM6sl' stringini döndürmeliyiz;
+    **Not bu vereceği string sizde farklı olabilir. Onu yapıştırın.**
+
+* Kodumuzun son hali ise **Accessories'UNION+SELECT+null,CONCAT('LiM6sl'),null+--** oluyor. Bunu **category=** yazan yerin sağına boşluk bırakmadan yapıştıralım ve **Send** tuşuna basalım;
+
+* Böylelikle bu alıştırma da tamamlanmış oldu.
+
+* Burada SQL Injection olduğu bilgisi bize verildi ve biz de gerekli kodları kullanarak bir string değerini veritabanına ulaşarak döndürebildik. 
 
 
 
