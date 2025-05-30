@@ -53,21 +53,21 @@
 
 ![alt text](<WebSec101 0x06_ss/image-20.png>)
 
-* Burada gördüğümüz gibi **Request** kısmında wiener kullanıcısının bilgileri sorgulanmış vaziyette. Burada dikkat edersek sağ tarafta **Response** penceresinde de session=P0yelKTXXrjvoipzOjpOyGRWsES4arPe şeklinde bir cookie'de tanımlanmış bu kullancıya. Bu cookie'yi kopyalayalım ve ardından **Repeater** sekmesine gelelim;
+* Burada gördüğümüz gibi **Request** kısmında wiener kullanıcısının bilgileri sorgulanmış vaziyette. Burada dikkat edersek sağ tarafta **Response** penceresinde de **session=P0yelKTXXrjvoipzOjpOyGRWsES4arPe** şeklinde bir cookie'de tanımlanmış bu kullancıya. Bu cookie'yi kopyalayalım ve ardından **Repeater** sekmesine gelelim;
 
 ![alt text](<WebSec101 0x06_ss/image-21.png>)
 
 ![alt text](<WebSec101 0x06_ss/image-16.png>)
 
-* Burada admin sorgumuz duruyor ve adminin yetkilendirdiği carlos kullanıcısına ait yetki yükseltme sorgusu var. Dikkat edersek yukarıda bir cookie var ve aşağıda username kısmında carlos yazıyor. Düşünelim, eğer biz wiener'in kopyaladığımız cookiesini carlosunkiyle değiştirsek ve carlos yazan yere de wiener yazsak bu yetkilendirme işlemini wienere çevirebilir miyiz? Deneyelim;
+* Burada admin sorgumuz duruyor ve adminin yetkilendirdiği **carlos** kullanıcısına ait yetki yükseltme sorgusu var. Dikkat edersek yukarıda bir **cookie** var ve aşağıda username kısmında **carlos** yazıyor. Düşünelim, eğer biz **wiener**'in kopyaladığımız cookiesini carlosunkiyle değiştirsek ve **carlos** yazan yere de **wiener** yazsak bu yetkilendirme işlemini **wiener**e çevirebilir miyiz? Deneyelim;
 
 ![alt text](<WebSec101 0x06_ss/image-17.png>)
 
-* Sol üstteki Send tuşuna basarak devam edelim;
+* Sol üstteki **Send** tuşuna basarak devam edelim;
 
 ![alt text](<WebSec101 0x06_ss/image-18.png>)
 
-* Response kısmında 302 found çıktı, yani bu sorgu çalıştı ve web sitesine de dönersek alıştırmayı tamamlamış olduğumuzu göreceğiz;
+* **Response** kısmında **302 found** çıktı, yani bu sorgu çalıştı ve web sitesine de dönersek alıştırmayı tamamlamış olduğumuzu göreceğiz;
 
 ![alt text](<WebSec101 0x06_ss/image-19.png>)
 
@@ -76,10 +76,9 @@
 
 # İkinci Alıştırma
 
-* https://portswigger.net/web-security/access-control/lab-referer-based-access-control Bu alıştırma sayfasına gelelim ve Access the Lab diyerek devam edelim. Bizden istediği bi önceki alıştırma ile aynı sadece ufak bir farklılık var;
+* https://portswigger.net/web-security/access-control/lab-referer-based-access-control Bu alıştırma sayfasına gelelim ve **Access the Lab** diyerek devam edelim. Bizden istediği bi önceki alıştırma ile aynı sadece ufak bir farklılık var;
 
-
-* Admin hesabına giriş yapalım; 
+* **Admin** hesabına giriş yapalım; 
 
 ![alt text](<WebSec101 0x06_ss/image-2.png>)
 
