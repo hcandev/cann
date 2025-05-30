@@ -162,8 +162,9 @@
 * Burada SQL Injection olduğu bilgisi bize verildi ve biz de gerekli kodları kullanarak bir string değerini veritabanına ulaşarak döndürebildik. 
 
 
+# KAYNAK
 
-
+[Web Security 0x06 | Web Security Academiy 2nd Edition MDISEC](https://www.youtube.com/watch?v=IfYyFMydLV4&list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT&index=6)
 
 
 
