@@ -1,4 +1,4 @@
-<h1 align="center">XSS -1</h1>
+<h1 align="center">XSS - 1</h1> 
 
 # XSS(Cross Site Scripting)(Siteler Arası Komut Dosyası Çalıştırma)
 
