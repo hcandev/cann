@@ -7,7 +7,7 @@
 * https://portswigger.net/web-security/sql-injection/cheat-sheet sqli için cheatsheet.
 
 * Sözlük
-  * table(table): html'de verileri kolonlar ve diziler halinde organize etmeyi sağlayan bir yol. Bir çeşit tablo olarak düşünebiliriz.
+  * **table(table)**: html'de verileri kolonlar ve diziler halinde organize etmeyi sağlayan bir yol. Bir çeşit tablo olarak düşünebiliriz.
 
 * https://portswigger.net/web-security/sql-injection/union-attacks/lab-retrieve-data-from-other-tables alıştırma adresine gelelim.
 
