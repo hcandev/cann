@@ -118,7 +118,7 @@ Cookie: SESSION=as8d798a7sd8a9s7dsdasdafs78989
 
 ### Cookielerin Saklandığı Yer.
 
-Sunucu tarafında cookieler protokol, domain ve port üçlüsünde saklanır. Örneğin http://www.mdisec.com:80/ adresinde port http, domain mdisec.com, port ise 80'dir.
+Sunucu tarafında cookieler protokol, domain ve port üçlüsünde saklanır. Örneğin http://www.mdisec.com:80/ adresinde protokol http, domain mdisec.com, port ise 80'dir.
 Sosyal medya hesabınıza giriş yaptığınızı düşünün. O giriş bilgileri ilgili web sitesine ait gruplarda toplanacaktır. Yani z sitesine girince giriş kimliğiniz o sitede gömülü olur mantıken. Bunlar da protokol, domain ve porttur.
 
 ### Session'ın Saklandığı Yer.
