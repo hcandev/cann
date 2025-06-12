@@ -14,7 +14,7 @@
 
 ![alt text](<WebSec101 0x05_ss/image.png>)
 
-* Yukarıda bu testteki erişim kontrol zaafiyetinin varlığından söz ediliyor. Bu testi çözebilmemiz için ***carlos*** kullanıcısının API key'ini bulmamızı istiyor. Ancak bize bunu wiener'in hesabına girerek yapmamızı istiyor. ***Access the Lab*** kısmına tıklayıp devam edelim;
+* Yukarıda bu testteki erişim kontrol zafiyetinin varlığından söz ediliyor. Bu testi çözebilmemiz için ***carlos*** kullanıcısının API key'ini bulmamızı istiyor. Ancak bize bunu wiener'in hesabına girerek yapmamızı istiyor. ***Access the Lab*** kısmına tıklayıp devam edelim;
 
 * Açılan sayfada sağ üstte ***Account Login*** tuşuna basalım ve giriş kısmına ***wiener***, şifreye de ***peter*** yazalım;
 
@@ -52,7 +52,7 @@
 ![alt text](<WebSec101 0x05_ss/image-9.png>)
 
 
-* Böylece bir alıştırmayı çözmüş olduk. Görüldüğü üzere bize verilen hesap üzerinden giriş yaptık ve bu giriş bilgisinin sunucuya gönderdiği sorguyu Burpsuit ile yakaladık. Sonra buradaki bir girdiyi değiştirerek sunucuya başka bir sorgu yolladık. Bu sorgu başka bir kullanıcının bilgisini içerdiğinden sunucudan bize gelen response'da o kullancıya ait veriler çıktı. Basit bir IDOR zaafiyetini uygulamalı olarak yapmış olduk.
+* Böylece bir alıştırmayı çözmüş olduk. Görüldüğü üzere bize verilen hesap üzerinden giriş yaptık ve bu giriş bilgisinin sunucuya gönderdiği sorguyu Burpsuit ile yakaladık. Sonra buradaki bir girdiyi değiştirerek sunucuya başka bir sorgu yolladık. Bu sorgu başka bir kullanıcının bilgisini içerdiğinden sunucudan bize gelen response'da o kullancıya ait veriler çıktı. Basit bir IDOR zafiyetini uygulamalı olarak yapmış olduk.
 
 # İKİNCİ ALIŞTIRMA
 
