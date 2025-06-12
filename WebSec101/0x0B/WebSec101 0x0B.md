@@ -15,7 +15,7 @@ https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 * https://portswigger.net/web-security/dom-based/dom-clobbering/lab-dom-clobbering-attributes-to-bypass-html-filters bu adrese geliyoruz.
 
 
-* Alıştırmada web uygulamasının **HTMLJanitor library** kullandığından bahsediyor. Ancak bu kütüphaneyi kullanırken **DOM clobbering**'e karşı zaafiyeti olduğunu da ekliyor. 
+* Alıştırmada web uygulamasının **HTMLJanitor library** kullandığından bahsediyor. Ancak bu kütüphaneyi kullanırken **DOM clobbering**'e karşı zafiyeti olduğunu da ekliyor. 
 
 
 * Siteye girelim ve bir post seçip **ViewPost** tuşuna basalım;
@@ -77,7 +77,7 @@ https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 
 ![alt text](<WebSec101 0x0B_ss/image-11.png>)
 
-* Yukarıdaki js kodu ile ilişkili. Bu kod web uygulamasının beslendiği js kodu. Biraz yukarıda da bir benzerine bakmıştık. Şimdi buradaki görselde attribute'a ilişkin bir takım şartlar mevcut. Burada aslında bizim form elementininin bir attribute'u oluşmuş oluyor. Ama bu yalnızca <input id=attributes> yazdığımızda oluşuyor. Çünkü **input** tagi aslında **form** taginin altında bir tag. Dolayısıyla bu kodda **form**'un devraldığı **attribute** parametrisi okunmamış oluyor. Bundan dolayı da **htmljanitor** yazdığımız **js** kodunu silmiyor. E bu olduğu vakit kodun aşağısında attribute'u silen kod da hiç çalışmamış oluyor(aşağıdaki **if** ile başlayan kod). Böyle olduğu için de bu js kodunda bir zaafiyet bulmuş oluyoruz.
+* Yukarıdaki js kodu ile ilişkili. Bu kod web uygulamasının beslendiği js kodu. Biraz yukarıda da bir benzerine bakmıştık. Şimdi buradaki görselde attribute'a ilişkin bir takım şartlar mevcut. Burada aslında bizim form elementininin bir attribute'u oluşmuş oluyor. Ama bu yalnızca <input id=attributes> yazdığımızda oluşuyor. Çünkü **input** tagi aslında **form** taginin altında bir tag. Dolayısıyla bu kodda **form**'un devraldığı **attribute** parametrisi okunmamış oluyor. Bundan dolayı da **htmljanitor** yazdığımız **js** kodunu silmiyor. E bu olduğu vakit kodun aşağısında attribute'u silen kod da hiç çalışmamış oluyor(aşağıdaki **if** ile başlayan kod). Böyle olduğu için de bu js kodunda bir zafiyet bulmuş oluyoruz.
 
 * Şimdi **<form id=x tabindex=0 onfocus=print()><input id=attributes>** kodu ile yorum yapalım. Burada **onfocus** parametresi geldiği için **id=x** ve **tabindex=0** gibi parametreler de eklendi. Bunun sebebi sayfa yüklendiğinde ilgili yoruma odaklansın diye(odaklanmadan kasıt, tab tuşuna basarak seçmektir.);
 
