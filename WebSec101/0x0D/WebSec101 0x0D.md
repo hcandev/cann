@@ -38,7 +38,7 @@
 
 * https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-arbitrary-object-injection-in-php
 
-* Bu alıştırmada yine serialize tabanlı bir session mekanizması varmış ve **php object injection** tarafında bir zaafiyeti varmış. Yine carlosa ait **morale.txt** dosyasını silmemizi istiyor ama bu kez **object injection** yaparak. Bunun için de bu sitenin kaynak kodlarına ihtiyacımız var. Dolayısıyla önce kaynak koduna erişip sonra silme işlemini yapmamız gerekiyor.
+* Bu alıştırmada yine serialize tabanlı bir session mekanizması varmış ve **php object injection** tarafında bir zafiyeti varmış. Yine carlosa ait **morale.txt** dosyasını silmemizi istiyor ama bu kez **object injection** yaparak. Bunun için de bu sitenin kaynak kodlarına ihtiyacımız var. Dolayısıyla önce kaynak koduna erişip sonra silme işlemini yapmamız gerekiyor.
 
 * Siteye girelim ve **ctrl+u** yaparak sayfayı inceleyelim;
 
@@ -267,7 +267,7 @@ private function build_product() {
     }
 ```
 
-* Burada **deserialization** yapılırken oluşabilecek bir zaafiyet söz konusu. Bu sınıfta wakeup metodu da çağrıldığı için fonksiyon kontrol dışı yeniden başlatılabilir ve bu da güvenlik riskini doğurur. 
+* Burada **deserialization** yapılırken oluşabilecek bir zafiyet söz konusu. Bu sınıfta wakeup metodu da çağrıldığı için fonksiyon kontrol dışı yeniden başlatılabilir ve bu da güvenlik riskini doğurur. 
 
 * **build_product** fonksiyonu, **Product** sınıfını oluştururken **$this->desc** özelliğini kullanıyor. Buradaki **desc** özelliği bu kod sayesinde geri dönüştürülerek kullanılabilir çünkü **build product** fonksiyonu **construct** fonksiyonunun içinde de çağrılmış. 
 
