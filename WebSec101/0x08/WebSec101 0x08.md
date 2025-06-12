@@ -4,7 +4,7 @@
 
 ## XSS Tespiti
 
-Adından da anlaşılacağı üzere bir web uygulamasında komut çalıştırabildiğimiz durumlarda bu zaafiyet ortaya çıkar. Bunda örnekler üzerinden gidelim;
+Adından da anlaşılacağı üzere bir web uygulamasında komut çalıştırabildiğimiz durumlarda bu zafiyet ortaya çıkar. Bunda örnekler üzerinden gidelim;
 
 * Bir hackerın gözünden internetin nasıl çalıştığını hatırlayalım;
 
@@ -57,7 +57,7 @@ Yaptığı şey basitçe anlatmak gerekirse XSS tespiti sonrası **<script>alert
 
 ![alt text](<WebSec101 0x08_ss/image-8.png>)
 
-XSS'in tespit edildiği web uygulamalarında bu kodu arattığımızda Beef tarafından yukarıdaki görselde olduğu gibi veri okumaları yapabiliyoruz. Örneğin web uygulamasının sosyal medya olduğu durumlarda kurban kişinin mesajlarına ulaşılabilir ya da e ticaret sitesinde kredi kartı bilgileri saldırgan tarafından ele geçirilebilir. Bunların hepsi XSS zaafiyeti yüzündendir ve BEEF gibi bir tool ile bu işlemler daha verimli bir şekilde gerçekleşir.
+XSS'in tespit edildiği web uygulamalarında bu kodu arattığımızda Beef tarafından yukarıdaki görselde olduğu gibi veri okumaları yapabiliyoruz. Örneğin web uygulamasının sosyal medya olduğu durumlarda kurban kişinin mesajlarına ulaşılabilir ya da e ticaret sitesinde kredi kartı bilgileri saldırgan tarafından ele geçirilebilir. Bunların hepsi XSS zafiyeti yüzündendir ve BEEF gibi bir tool ile bu işlemler daha verimli bir şekilde gerçekleşir.
 
 
 ***XSS Detection(Tespit)***:
@@ -82,7 +82,7 @@ Bu tarz web siteleri linkleri kısaltıyor;
 
 ![alt text](<WebSec101 0x08_ss/image-10.png>)
 
-Bu sayede artık koddaki js okunmaz halde. Dolayısıyla bir başkası tıklayabilir. Tıkladıktan sonra da XSS zaafiyeti dolayısıyla tıklayan kişinin verileri kodun içeriği ölçüsünde tehlikeye girer.
+Bu sayede artık koddaki js okunmaz halde. Dolayısıyla bir başkası tıklayabilir. Tıkladıktan sonra da XSS zafiyeti dolayısıyla tıklayan kişinin verileri kodun içeriği ölçüsünde tehlikeye girer.
 
 ### Stored XSS(Saklanmış XSS)
 
@@ -101,7 +101,7 @@ Saldırganın gönderdiği **payload**, response olarak dönmek yerine veritaban
 * Sözlük;
  * encode:çeşitli karakterleri başka bir formata çevirmek. Şifrelemek.
 
-XSS zaafiyetinin html içeriğinde olması ile ilgilidir. Örneğin **www.x.com/?keyword=CAN** şöyle bir siteye girdiğimizi düşünelim ve kabaca şöyle bir kod grubu ile karşılaştığımızı varsayalım;
+XSS zafiyetinin html içeriğinde olması ile ilgilidir. Örneğin **www.x.com/?keyword=CAN** şöyle bir siteye girdiğimizi düşünelim ve kabaca şöyle bir kod grubu ile karşılaştığımızı varsayalım;
 
 **www.x.com/?keyword=CAN**:
 
@@ -309,7 +309,7 @@ Yukarıdaki kodun sonunda **query=can** yazıyor. Yani yazdığımız yazı orad
 
 ![alt text](<WebSec101 0x08_ss/image-23.png>)
 
-* next=confirm dikkatimizi çekiyor. confirm yerine kod enjekte edilebilir. Çünkü next tuşuna basılacağı zaman confirm kodunu çalıştıracakmış. Bizde diyoruz ki next tuşuna basıldığı zaman javascript:alert(1) kodu çalıştırılsın ve XSS zaafiyeti ortaya çıksın;
+* next=confirm dikkatimizi çekiyor. confirm yerine kod enjekte edilebilir. Çünkü next tuşuna basılacağı zaman confirm kodunu çalıştıracakmış. Bizde diyoruz ki next tuşuna basıldığı zaman javascript:alert(1) kodu çalıştırılsın ve XSS zafiyeti ortaya çıksın;
 
 ![alt text](<WebSec101 0x08_ss/image-24.png>)
 
