@@ -261,7 +261,7 @@ target.addEventListener('load', function() {
 
 ![alt text](<WebSec101 0x09_ss/image-18.png>)
 
-* Sitedeki muhtemel js kodu böyle bir şey ve hacker tarafından yollanan payload gelip bu kodu tetikliyor ve alert verdirtiyor. Dolayısıyla bir XSS zaafiyeti ortaya çıkmış oluyor. 
+* Sitedeki muhtemel js kodu böyle bir şey ve hacker tarafından yollanan payload gelip bu kodu tetikliyor ve alert verdirtiyor. Dolayısıyla bir XSS zafiyeti ortaya çıkmış oluyor. 
 
 
 # KAYNAK
