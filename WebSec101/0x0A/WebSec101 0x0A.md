@@ -11,7 +11,7 @@
 
 * https://portswigger.net/web-security/sql-injection/union-attacks/lab-retrieve-data-from-other-tables alıştırma adresine gelelim.
 
-* Ürün kategori filtresinde SQL zaafiyeti olduğunu söylüyor. Yapılacak sorguların uygulama tarafından response vereceğini söylüyor dolayısıyla UNION attack yapabilir ve table'lardan veri çekebiliriz.
+* Ürün kategori filtresinde SQL zafiyeti olduğunu söylüyor. Yapılacak sorguların uygulama tarafından response vereceğini söylüyor dolayısıyla UNION attack yapabilir ve table'lardan veri çekebiliriz.
 
 * Veritabanında **'users'** isimli bir tableın bulunduğunu ve bu tableın içerisinde **username** ve **password** isimli kolonlar barındırdığını söylüyor.
 
