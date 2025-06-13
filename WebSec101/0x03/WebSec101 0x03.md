@@ -151,7 +151,7 @@ Sosyal medya hesabınıza giriş yaptığınızı düşünün. O giriş bilgiler
 
             ![alt text](<WebSec101 0x03_ss/image-13.png>)
 
-* Şimdi yukarıdaki adımlardan yorumlayalım. Bir kullanıcı var ve silme sorgusunu sunucuya gönderiyor. Burada sunucunun kullanıcının bu requestinin isteyerek mi gönderdiğinden emin olması gerekir. Yani yine doğrulama söz konusu. Eğer client'tın(kullanıcı) requestinden emin olmaz ise CSRF zaafiyeti olur:
+* Şimdi yukarıdaki adımlardan yorumlayalım. Bir kullanıcı var ve silme sorgusunu sunucuya gönderiyor. Burada sunucunun kullanıcının bu requestinin isteyerek mi gönderdiğinden emin olması gerekir. Yani yine doğrulama söz konusu. Eğer client'tın(kullanıcı) requestinden emin olmaz ise CSRF zafiyeti olur:
 
 * İki tane web sekmesinin açık olduğunu düşünelim: 
 
@@ -174,7 +174,7 @@ www.hacker.com
 
 * İlk sekmede kullanıcı bizim e ticaret web uygulamasındaydı. Varsayalım ki ikinci sekmede de **hacker.com** diye bir siteye girmiş olsun. İlk sekmede kullanıcı **delete requestini** adresini silmek için yolladı. Ancak ikinci sekmede sunucu **<img src>** kısmını gördüğü için ***'http://18.132.45.78/address/delete/17'*** requestini de buraya giriyor. Hatırlayalım, **client'ın session bilgisi protocol, domain ve port üzerindeydi**. Dolayısıyla ilk sitedeki session ikincisi ile **eşleşmekte** ve ilk sitedeki request de ikinciye gönderilmektedir. Çünkü cookieler ve session bilgileri eşleşiyor. 
 
-* Browser iki sekmenin de cookieleri ve sessionlarını eşleştiriyor. Çünkü iki sekmede de protocol, domain ve port aynıdır. Ancak unutmayalım ki kullanıcının bundan haberi yok. Yani ilk sekmede delete requesti gerçekleştiriyor ve farkında, ama ikinci sekmede aynı delete requestinin gittiğinden habersiz. Dolayısıyla burada bir zaafiyet vardır ve bunun adı da **CSRF**. **Siteler arası istek sahteciliği**
+* Browser iki sekmenin de cookieleri ve sessionlarını eşleştiriyor. Çünkü iki sekmede de protocol, domain ve port aynıdır. Ancak unutmayalım ki kullanıcının bundan haberi yok. Yani ilk sekmede delete requesti gerçekleştiriyor ve farkında, ama ikinci sekmede aynı delete requestinin gittiğinden habersiz. Dolayısıyla burada bir zafiyet vardır ve bunun adı da **CSRF**. **Siteler arası istek sahteciliği**
 
 ### Önlem
 
@@ -196,12 +196,12 @@ Devam ediliyor ve web uygulamasının kodu inceleniyor:
 
 Burada web uygulamasının formu üretirken gizli bir token oluşturduğu ve bunu gizli bir değer olarak koyduğu görülüyor. Çünkü web uygulamasının arayüzünde görünür değildi ancak BurpSuite'de görebilmiştik. **Bu token değer kullanıcının session'ı ile ilişkilidir.** Çünkü bu token bu kullanıcıya ve dolayısıyla onun bu sessionına özeldir. Dolayısıyla çerezler ile ya da session ile bir eşleşme söz konusu olacaksa bu eşleşme yalnızca bu token değeri ile eşitlendiğinde gerçekleşebilir. Yani web uygulaması aslında kullanıcının requestini bilerek yapıp yapmadığını bu token sayesinde anlamaktadır. Web uygulaması içerisinde ise çalışacak ancak başka web uygulamaları bu requestten etkilenmeyecek çünkü buradaki token ile başka web uygulamalarındaki uyuşmayacak. Yani bu web uygulaması ile ilgili bir şey.
 
-Sonuçta web uygulaması form arayüzüne kullanıcıya özel bir token üretip onu gizlemektedir. Bu token ise aslında kullanıcıya özeldir ve dışarıdan bir hacker tarafından görülemez ve dolayısıyla başka web uygulamaları bu web uygulamasının sorgularından etkilenemez. **Bu şekilde CSRF zaafiyeti engellenir.**
+Sonuçta web uygulaması form arayüzüne kullanıcıya özel bir token üretip onu gizlemektedir. Bu token ise aslında kullanıcıya özeldir ve dışarıdan bir hacker tarafından görülemez ve dolayısıyla başka web uygulamaları bu web uygulamasının sorgularından etkilenemez. **Bu şekilde CSRF zafiyeti engellenir.**
 
 
 ## SameSite Cookie
 
-Yukarıda CSRF zaafiyeti web uygulamasında token ile engelleniyordu. SameSite Cookie ise bu işi browser'da yapıyor. SameSite Cookie browser'a bir kural tanımlamaktadır. Bu kurala göre siteler arası isteklerle birlikte bir çerezin gönderilip gönderilmeyeceğini kontrol eder. Örneğin facebook.com'a girdik ve yanda da hacker.com sitesi var. Hacker.com sitesi facebook sitesine request göndermek isteyecektir ancak facebok'da SameSite Cookie olduğu için bu requesti reddeder. Yani gelen requestin facebook.com'dan mı yoksa başka bir siteden mi geldiğini anlama kabiliyetine sahiptir. Dolayısıyla bir hacker browser'ı kullanarak CSRF zaafiyetini kullanamaz hale gelir. 
+Yukarıda CSRF zafiyeti web uygulamasında token ile engelleniyordu. SameSite Cookie ise bu işi browser'da yapıyor. SameSite Cookie browser'a bir kural tanımlamaktadır. Bu kurala göre siteler arası isteklerle birlikte bir çerezin gönderilip gönderilmeyeceğini kontrol eder. Örneğin facebook.com'a girdik ve yanda da hacker.com sitesi var. Hacker.com sitesi facebook sitesine request göndermek isteyecektir ancak facebok'da SameSite Cookie olduğu için bu requesti reddeder. Yani gelen requestin facebook.com'dan mı yoksa başka bir siteden mi geldiğini anlama kabiliyetine sahiptir. Dolayısıyla bir hacker browser'ı kullanarak CSRF zafiyetini kullanamaz hale gelir. 
 
 # KAYNAK
 

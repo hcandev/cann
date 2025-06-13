@@ -329,7 +329,7 @@ echo $user->isAdmin(); //güncellendi.
 
 * https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-modifying-serialized-objects bu alıştırmaya gelelim.
 
-* Bu alıştırmada serialization tabanlı session mekanizması kullanılıyormuş ve bunun bir zaafiyeti olduğundan bahsediyor. Buradan muhtemelen userın cookiesinde serialize edilmiş veriyi tutuyor şeklinde bir yorum yapabiliriz. Bizim admin yetkilerini alıp carlos kullanıcısını silmemizi istiyor. 
+* Bu alıştırmada serialization tabanlı session mekanizması kullanılıyormuş ve bunun bir zafiyeti olduğundan bahsediyor. Buradan muhtemelen userın cookiesinde serialize edilmiş veriyi tutuyor şeklinde bir yorum yapabiliriz. Bizim admin yetkilerini alıp carlos kullanıcısını silmemizi istiyor. 
 
 * Access the lab diyelim ve **wiener:peter** hesap bilgilerini yazalım. Giriş yapmadan **intercept**'i açalım ve öyle giriş yapma tuşuna basalım;
 
@@ -381,7 +381,7 @@ echo $user->isAdmin(); //güncellendi.
 
 * https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-modifying-serialized-data-types bu adrese geliyoruz.
 
-* Yine session cookieyi kullanarak administrator kullanıcısının hesabına ulaşmamız ve carlosu silmemiz isteniyor. Tek farkı buradaki web uygulamasının authentication(kimlik doğrulaması)'a karşı bir zaafiyeti varmış.
+* Yine session cookieyi kullanarak administrator kullanıcısının hesabına ulaşmamız ve carlosu silmemiz isteniyor. Tek farkı buradaki web uygulamasının authentication(kimlik doğrulaması)'a karşı bir zafiyeti varmış.
 
 * Siteye girelim ve wiener:peter hesabına giriş yapıp Burpsuite'den requesti bulup repeater'a yollayalım;
 

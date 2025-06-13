@@ -44,7 +44,7 @@
 
 - F 
 
-- ***CSRF zaafiyetinde kod enjekte edilmiyor. Saldırgan kullanıcıya istenmeyen bir request yaptırtmaya çalışıyor. ***
+- ***CSRF zafiyetinde kod enjekte edilmiyor. Saldırgan kullanıcıya istenmeyen bir request yaptırtmaya çalışıyor. ***
 
 8. HTML/JavaScript are the primary languages targeted by cross-site scripting attacks. 
 

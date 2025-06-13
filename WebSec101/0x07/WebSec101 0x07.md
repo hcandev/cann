@@ -181,11 +181,11 @@ Evet görüldüğü üzere **writer** **keyword**ünün(anahtar kelime) beslendi
 
 * Alıştırma böylelikle tamamlanmış oldu.
 
-* Bi önceki alıştırmadan bunun tek farkı bize verilen **http://169.254.169.254/** adresi üzerinden xxe yapmamız oldu. Tabii yaptığımız bu saldırıyı **SSRF zaafiyetini** kullanarak yapmış olduk. Çünkü burada http tarafında yetkimiz dışında veri sızdırdık.
+* Bi önceki alıştırmadan bunun tek farkı bize verilen **http://169.254.169.254/** adresi üzerinden xxe yapmamız oldu. Tabii yaptığımız bu saldırıyı **SSRF zafiyetini** kullanarak yapmış olduk. Çünkü burada http tarafında yetkimiz dışında veri sızdırdık.
 
 ### SSRF (Server-Side Request Forgery)
 
-Sunucu Taraflı Sorgu Sahteciliği olarak düşünebiliriz. Yetki dışı http sorgularının sunucudan tarafından yapılabildiği bir zaafiyettir.
+Sunucu Taraflı Sorgu Sahteciliği olarak düşünebiliriz. Yetki dışı http sorgularının sunucudan tarafından yapılabildiği bir zafiyettir.
 
 ## XXE OOB(XXE Out of Band)(XXE Sınır dışı) 
 
